@@ -138,8 +138,9 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      bottomNavigationBar:
-          BottomNavScreen(currentIndex: currentIndex, title: "Home"),
+      bottomNavigationBar: BottomNavScreen(
+        currentIndex: currentIndex, // Ganti dengan judul sesuai kebutuhan
+      ),
     );
   }
 }
