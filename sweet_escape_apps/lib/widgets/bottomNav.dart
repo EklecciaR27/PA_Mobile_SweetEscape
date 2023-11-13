@@ -79,9 +79,20 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
           ),
           // activeIcon: Icon(Icons.favorite,
           // color:Color(0xFF1E0E4F) ,),
-          label: "Setting",
+          label: ("Setting"),
         ),
       ],
+      selectedItemColor:
+          Color.fromARGB(255, 4, 0, 255), // Warna saat item dipilih
+      unselectedItemColor: const Color.fromRGBO(
+          123, 120, 255, 1.0), // Warna saat item tidak dipilih
+      unselectedLabelStyle: const TextStyle(
+        color: Colors.black, // Warna teks label saat item tidak dipilih
+      ),
+      selectedLabelStyle: const TextStyle(
+        color: Colors.black, // Warna teks label saat item dipilih
+      ),
+
       backgroundColor: Theme.of(context)
           .bottomAppBarTheme
           .color, //pake warna yang ada di theme main
