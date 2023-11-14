@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sweet_escape_apps/home_page.dart';
+import 'package:sweet_escape_apps/input_page.dart';
 
 class BottomNavScreen extends StatefulWidget {
   final int currentIndex;
@@ -25,11 +26,11 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => const HomePage()));
     }
-    // if (index == 1) {
-    //   // Periksa apakah indeks yang dipilih adalah 1 (input Review)
-    //   Navigator.push(
-    //       context, MaterialPageRoute(builder: (context) => InputReviewPage()));
-    // }
+    if (index == 1) {
+      // Periksa apakah indeks yang dipilih adalah 1 (input Review)
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => Reservasi()));
+    }
     // if (index == 2) {
     //   // Periksa apakah indeks yang dipilih adalah 1 (output Review)
     //   Navigator.push(

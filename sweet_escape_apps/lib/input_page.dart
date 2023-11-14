@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'confirmation.dart';
 import 'package:intl/intl.dart';
+import 'widgets/bottomNav.dart';
 
 class Reservasi extends StatefulWidget {
   @override
@@ -40,11 +41,12 @@ class _ReservasiState extends State<Reservasi> {
   Widget build(BuildContext context) {
     var lebar = MediaQuery.of(context).size.width;
     var tinggi = MediaQuery.of(context).size.height;
+    var currentIndex = 0;
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          width: lebar,
-          height: tinggi,
+          // width: lebar,
+          // height: tinggi,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
@@ -62,9 +64,9 @@ class _ReservasiState extends State<Reservasi> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 20, bottom: 20),
-                child: const Text("Masukkan Nama Anda",
+              const Padding(
+                padding: EdgeInsets.only(top: 20, bottom: 20),
+                child: Text("Masukkan Nama Anda",
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 15,
@@ -89,9 +91,9 @@ class _ReservasiState extends State<Reservasi> {
                       }),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 20, bottom: 20),
-                child: const Text("Masukkan No Telepon Anda",
+              const Padding(
+                padding: EdgeInsets.only(top: 20, bottom: 20),
+                child: Text("Masukkan No Telepon Anda",
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 15,
@@ -116,9 +118,9 @@ class _ReservasiState extends State<Reservasi> {
                       }),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 40, bottom: 20),
-                child: const Text("Pilih Konsep :",
+              const Padding(
+                padding: EdgeInsets.only(top: 40, bottom: 20),
+                child: Text("Pilih Konsep :",
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 15,
@@ -161,9 +163,9 @@ class _ReservasiState extends State<Reservasi> {
                 ),
                 title: const Text('Formal'),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 40, bottom: 20),
-                child: const Text(
+              const Padding(
+                padding: EdgeInsets.only(top: 40, bottom: 20),
+                child: Text(
                   "Pilih Tanggal Booking :",
                   style: TextStyle(
                     color: Colors.black,
@@ -188,10 +190,10 @@ class _ReservasiState extends State<Reservasi> {
                 },
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(
-                    Color.fromARGB(255, 255, 255, 255),
+                    const Color.fromARGB(255, 255, 255, 255),
                   ),
                   side: MaterialStateProperty.all(
-                    BorderSide(
+                    const BorderSide(
                       color: Color.fromRGBO(194, 153, 247, 0.612),
                       width: 2.0,
                     ),
@@ -201,10 +203,10 @@ class _ReservasiState extends State<Reservasi> {
                   selectedDate != null
                       ? 'Tanggal : ${DateFormat('dd - MM - yyyy').format(selectedDate!)}'
                       : 'Pilih Tanggal',
-                  style: TextStyle(color: Colors.black, fontSize: 15),
+                  style: const TextStyle(color: Colors.black, fontSize: 15),
                 ),
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               ElevatedButton(
                 onPressed: () {
                   _incrementCounter();
@@ -223,8 +225,8 @@ class _ReservasiState extends State<Reservasi> {
                 },
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(
-                      Color.fromARGB(255, 255, 255, 255)),
-                  side: MaterialStateProperty.all(BorderSide(
+                      const Color.fromARGB(255, 255, 255, 255)),
+                  side: MaterialStateProperty.all(const BorderSide(
                       color: Color.fromRGBO(194, 153, 247, 0.612), width: 2.0)),
                 ),
                 child: const Text(
@@ -232,12 +234,15 @@ class _ReservasiState extends State<Reservasi> {
                   style: TextStyle(color: Colors.black, fontSize: 15),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 80,
               ),
             ],
           ),
         ),
+      ),
+      bottomNavigationBar: BottomNavScreen(
+        currentIndex: currentIndex, // Ganti dengan judul sesuai kebutuhan
       ),
     );
   }

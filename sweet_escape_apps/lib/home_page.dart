@@ -199,9 +199,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ]),
               ),
-              
+
               // MALANG
-               SizedBox(
+              SizedBox(
                 width: double.infinity,
                 height: tinggi * 0.3,
                 child: Stack(children: [
