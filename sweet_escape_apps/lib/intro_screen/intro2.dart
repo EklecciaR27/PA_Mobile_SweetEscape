@@ -13,11 +13,11 @@ class Intro2 extends StatelessWidget {
             Text('halaman 2'),
             SizedBox(
                 height: 16), // Untuk memberikan jarak antara teks dan gambar
-            Image.asset(
-              'images/logo1.png',
-              width: 200.0,
-              height: 180.0,
-            ),
+            // Image.asset(
+            //   'images/logo1.png',
+            //   width: 200.0,
+            //   height: 180.0,
+            // ),
             // Pastikan nama gambar dan path yang benar
           ],
         ),

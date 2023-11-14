@@ -70,8 +70,8 @@ flutter:
   - images/malang.jpg
   - images/jogja.jpg
   - images/bali.jpg
-  - images/logo1.png
-  - image/logo.jpeg
+  # - images/logo1.png
+  # - image/logo.jpeg
   
   #   - images/a_dot_ham.jpeg
 

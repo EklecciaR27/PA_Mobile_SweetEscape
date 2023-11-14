@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sweet_escape_apps/detailpage_bali.dart';
+import 'package:sweet_escape_apps/detailpage_jogja.dart';
+import 'package:sweet_escape_apps/detailpage_malang.dart';
 import 'package:sweet_escape_apps/widgets/bottomNav.dart';
 
 class HomePage extends StatefulWidget {
@@ -113,27 +116,249 @@ class _HomePageState extends State<HomePage> {
                 style: GoogleFonts.montserrat(
                     fontSize: 18, fontWeight: FontWeight.bold),
               ),
-              FavPlace(
-                  imagePath: "images/bali.jpg",
-                  namaCR: "Bali",
-                  rating: "4.9",
-                  place: "Ubud | Kintamani",
-                  lebar: lebar,
-                  tinggi: tinggi),
-              FavPlace(
-                  imagePath: "images/malang.jpg",
-                  namaCR: "Malang",
-                  rating: "4.5",
-                  place: "Mount Bromo",
-                  lebar: lebar,
-                  tinggi: tinggi),
-              FavPlace(
-                  imagePath: "images/jogja.jpg",
-                  namaCR: "Yogyakarta",
-                  rating: "4.7",
-                  place: "Candi Prambanan",
-                  lebar: lebar,
-                  tinggi: tinggi),
+
+              //3 pilihan
+              // BALI
+              SizedBox(
+                width: double.infinity,
+                height: tinggi * 0.3,
+                child: Stack(children: [
+                  Card(
+                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                    elevation: 10,
+                    child: Column(children: [
+                      SizedBox(
+                        width: double.infinity,
+                        height: tinggi * 0.2,
+                        child: Image.asset(
+                          "images/bali.jpg",
+                          fit: BoxFit.cover,
+                        ),
+                      )
+                    ]),
+                  ),
+                  Positioned(
+                    bottom: 0,
+                    left: 10,
+                    child: SizedBox(
+                      height: 70,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 10, right: 10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const SizedBox(height: 7),
+                            Text(
+                              "Bali",
+                              style: GoogleFonts.montserrat(
+                                  fontSize: 17, fontWeight: FontWeight.bold),
+                            ),
+                            const SizedBox(width: 5),
+                            Row(
+                              children: [
+                                const Icon(
+                                  Icons.star,
+                                  color: Colors.amber,
+                                ),
+                                Text("4.9"),
+                                const SizedBox(width: 20),
+                                const Icon(
+                                  Icons.place,
+                                  color: Colors.grey,
+                                ),
+                                const SizedBox(width: 5),
+                                Text(
+                                  "Ubud | Kintamani",
+                                  style: GoogleFonts.montserrat(fontSize: 12),
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  //button details
+                  Positioned(
+                    top: 20,
+                    right: 10,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DetailPageBali(),
+                          ),
+                        );
+                      },
+                      child: Text("Details"),
+                    ),
+                  ),
+                ]),
+              ),
+              
+              // MALANG
+               SizedBox(
+                width: double.infinity,
+                height: tinggi * 0.3,
+                child: Stack(children: [
+                  Card(
+                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                    elevation: 10,
+                    child: Column(children: [
+                      SizedBox(
+                        width: double.infinity,
+                        height: tinggi * 0.2,
+                        child: Image.asset(
+                          "images/malang.jpg",
+                          fit: BoxFit.cover,
+                        ),
+                      )
+                    ]),
+                  ),
+                  Positioned(
+                    bottom: 0,
+                    left: 10,
+                    child: SizedBox(
+                      height: 70,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 10, right: 10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const SizedBox(height: 7),
+                            Text(
+                              "Malang",
+                              style: GoogleFonts.montserrat(
+                                  fontSize: 17, fontWeight: FontWeight.bold),
+                            ),
+                            const SizedBox(width: 5),
+                            Row(
+                              children: [
+                                const Icon(
+                                  Icons.star,
+                                  color: Colors.amber,
+                                ),
+                                Text("4.5"),
+                                const SizedBox(width: 20),
+                                const Icon(
+                                  Icons.place,
+                                  color: Colors.grey,
+                                ),
+                                const SizedBox(width: 5),
+                                Text(
+                                  "Mount Bromo",
+                                  style: GoogleFonts.montserrat(fontSize: 12),
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    top: 20,
+                    right: 10,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DetailPageMalang(),
+                          ),
+                        );
+                      },
+                      child: Text("Details"),
+                    ),
+                  ),
+                ]),
+              ),
+
+              // JOGJAA
+              SizedBox(
+                width: double.infinity,
+                height: tinggi * 0.3,
+                child: Stack(children: [
+                  Card(
+                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                    elevation: 10,
+                    child: Column(children: [
+                      SizedBox(
+                        width: double.infinity,
+                        height: tinggi * 0.2,
+                        child: Image.asset(
+                          "images/jogja.jpg",
+                          fit: BoxFit.cover,
+                        ),
+                      )
+                    ]),
+                  ),
+                  Positioned(
+                    bottom: 0,
+                    left: 10,
+                    child: SizedBox(
+                      height: 70,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 10, right: 10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const SizedBox(height: 7),
+                            Text(
+                              "Yogyakarta",
+                              style: GoogleFonts.montserrat(
+                                  fontSize: 17, fontWeight: FontWeight.bold),
+                            ),
+                            const SizedBox(width: 5),
+                            Row(
+                              children: [
+                                const Icon(
+                                  Icons.star,
+                                  color: Colors.amber,
+                                ),
+                                Text("4.7"),
+                                const SizedBox(width: 20),
+                                const Icon(
+                                  Icons.place,
+                                  color: Colors.grey,
+                                ),
+                                const SizedBox(width: 5),
+                                Text(
+                                  "Candi Prambanan",
+                                  style: GoogleFonts.montserrat(fontSize: 12),
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    top: 20,
+                    right: 10,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DetailPageJogja(),
+                          ),
+                        );
+                      },
+                      child: Text("Details"),
+                    ),
+                  ),
+                ]),
+              ),
             ],
           ),
         ),
@@ -141,112 +366,6 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: BottomNavScreen(
         currentIndex: currentIndex, // Ganti dengan judul sesuai kebutuhan
       ),
-    );
-  }
-}
-
-// ignore: must_be_immutable
-class FavPlace extends StatelessWidget {
-  final String imagePath;
-  final String namaCR;
-  final String rating;
-  final String place;
-  var lebar;
-  var tinggi;
-  FavPlace({
-    super.key,
-    required this.imagePath,
-    required this.namaCR,
-    required this.rating,
-    required this.place,
-    required this.lebar,
-    required this.tinggi,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      height: tinggi * 0.3,
-      child: Stack(children: [
-        Card(
-          clipBehavior: Clip.antiAliasWithSaveLayer,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-          elevation: 10,
-          child: Column(children: [
-            SizedBox(
-              width: double.infinity,
-              height: tinggi * 0.2,
-              child: Image.asset(
-                imagePath,
-                fit: BoxFit.cover,
-              ),
-            )
-          ]),
-        ),
-        Positioned(
-          bottom: 0,
-          left: 10,
-          child: SizedBox(
-            height: 70,
-            child: Padding(
-              padding: const EdgeInsets.only(left: 10, right: 10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(height: 7),
-                  Text(
-                    namaCR,
-                    style: GoogleFonts.montserrat(
-                        fontSize: 17, fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(width: 5),
-                  Row(
-                    children: [
-                      const Icon(
-                        Icons.star,
-                        color: Colors.amber,
-                      ),
-                      Text(rating),
-                      const SizedBox(width: 20),
-                      const Icon(
-                        Icons.place,
-                        color: Colors.grey,
-                      ),
-                      const SizedBox(width: 5),
-                      Text(
-                        place,
-                        style: GoogleFonts.montserrat(fontSize: 12),
-                      )
-                    ],
-                  )
-                ],
-              ),
-            ),
-          ),
-        ),
-        // Positioned(
-        //   top: 20,
-        //   right: 10,
-        //   child: ElevatedButton(
-        //     onPressed: () {
-        //       Navigator.push(
-        //         context,
-        //         MaterialPageRoute(
-        //           builder: (context) => detailpage(
-        //             imagePath: imagePath,
-        //             namaCR: namaCR,
-        //             rating: rating,
-        //             jam: jam,
-        //           ),
-        //         ),
-        //       );
-        //     },
-        //     child: Text("Details"),
-        //   ),
-        // ),
-      ]),
     );
   }
 }
@@ -262,7 +381,7 @@ class Category extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Container(
-          width: MediaQuery.of(context).size.width * 0.12,
+          width: MediaQuery.of(context).size.width * 0.11,
           height: 60,
           child: Column(
             children: [
