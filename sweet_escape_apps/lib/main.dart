@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sweet_escape_apps/OnBoarding_Screen.dart';
 import 'package:sweet_escape_apps/home_page.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: HomePage(),
+      home: OnBoardingScreen(),
     );
   }
 }
