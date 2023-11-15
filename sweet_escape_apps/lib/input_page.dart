@@ -16,6 +16,7 @@ class _ReservasiState extends State<Reservasi> {
   String? name = '';
   String? numbphone = '';
   DateTime? selectedDate;
+
   List<Map<String, dynamic>> reservations = [];
 
   void _incrementCounter() {
@@ -45,20 +46,18 @@ class _ReservasiState extends State<Reservasi> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          // width: lebar,
-          // height: tinggi,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.only(top: 10),
                 child: Container(
-                  width: 300,
+                  width: lebar,
                   height: 150,
                   margin: const EdgeInsets.only(top: 2, bottom: 50),
                   decoration: const BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage("assets/zaamakeup.PNG"),
+                      image: AssetImage("images/bali.jpg"),
                       fit: BoxFit.fill,
                     ),
                   ),
@@ -79,7 +78,6 @@ class _ReservasiState extends State<Reservasi> {
                   width: 200,
                   child: TextFormField(
                       decoration: InputDecoration(
-                        hintText: "Masukkan Nama Anda",
                         labelText: "Nama",
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(5.0)),
@@ -106,7 +104,6 @@ class _ReservasiState extends State<Reservasi> {
                   width: 200,
                   child: TextFormField(
                       decoration: InputDecoration(
-                        hintText: "Masukkan No Telepon Anda",
                         labelText: "No Telepon",
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(5.0)),

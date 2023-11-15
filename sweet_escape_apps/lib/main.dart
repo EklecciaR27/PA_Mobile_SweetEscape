@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sweet_escape_apps/OnBoarding_Screen.dart';
 import 'package:sweet_escape_apps/home_page.dart';
+import 'package:sweet_escape_apps/input_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,8 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const OnBoardingScreen(),
+      home: Reservasi(),
     );
   }
 }
-
