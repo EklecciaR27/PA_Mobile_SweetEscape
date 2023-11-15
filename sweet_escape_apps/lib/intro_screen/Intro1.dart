@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Intro1 extends StatelessWidget {
   const Intro1({Key? key}) : super(key: key);
@@ -7,20 +8,27 @@ class Intro1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      child: Center(
-        child: ListView(
-          children: [
-            Text('halaman 1'),
-            SizedBox(
-                height: 16), // Untuk memberikan jarak antara teks dan gambar
-            // Image.asset(
-            //   'image/logo.jpeg',
-            //   width: 200.0,
-            //   height: 200.0,
-            // ),
-            // Pastikan nama gambar dan path yang benar
-          ],
-        ),
+      child: Column(
+        children: [
+          Center(
+            child: ListView(
+              children: [
+                Text(
+                  'WELCOME TO',
+                  style: GoogleFonts.montserrat(
+                      color: Colors.lightBlue,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20),
+                ),
+                Image.asset(
+                  'images/intro2.png',
+                  width: 450.0,
+                  height: 450.0,
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
