@@ -186,12 +186,11 @@ class _ReservasiState extends State<Reservasi> {
                   }
                 },
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
-                    const Color.fromARGB(255, 255, 255, 255),
-                  ),
+                  padding: MaterialStatePropertyAll(
+                      EdgeInsets.fromLTRB(80, 0, 80, 0)),
                   side: MaterialStateProperty.all(
                     const BorderSide(
-                      color: Color.fromRGBO(194, 153, 247, 0.612),
+                      color: Color.fromRGBO(0, 0, 0, 0.612),
                       width: 2.0,
                     ),
                   ),
@@ -200,7 +199,8 @@ class _ReservasiState extends State<Reservasi> {
                   selectedDate != null
                       ? 'Tanggal : ${DateFormat('dd - MM - yyyy').format(selectedDate!)}'
                       : 'Pilih Tanggal',
-                  style: const TextStyle(color: Colors.black, fontSize: 15),
+                  style: const TextStyle(
+                      color: Color.fromARGB(255, 102, 162, 173), fontSize: 15),
                 ),
               ),
               const SizedBox(height: 30),

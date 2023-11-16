@@ -5,7 +5,6 @@ import 'package:sweet_escape_apps/intro_screen/Intro1.dart';
 import 'package:sweet_escape_apps/intro_screen/intro2.dart';
 import 'package:sweet_escape_apps/intro_screen/intro3.dart';
 
-
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({Key? key}) : super(key: key);
 
@@ -30,14 +29,14 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 onLastpage = (index == 2);
               });
             },
-            children: [
+            children: const [
               Intro1(),
               Intro2(),
               Intro3(),
             ],
           ),
           Container(
-            alignment: Alignment(0, 0.75),
+            alignment: const Alignment(0, 0.75),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -45,7 +44,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   onTap: () {
                     _controller.jumpToPage(2);
                   },
-                  child: Text("Skip"),
+                  child: const Text("Skip"),
                 ),
                 SmoothPageIndicator(controller: _controller, count: 3),
                 onLastpage
@@ -55,21 +54,21 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             context,
                             MaterialPageRoute(
                               builder: (context) {
-                                return HomePage();
+                                return const HomePage();
                               },
                             ),
                           );
                         },
-                        child: Text("Done"),
+                        child: const Text("Done"),
                       )
                     : GestureDetector(
                         onTap: () {
                           _controller.nextPage(
-                            duration: Duration(milliseconds: 500),
+                            duration: const Duration(milliseconds: 500),
                             curve: Curves.easeIn,
                           );
                         },
-                        child: Text("Next"),
+                        child: const Text("Next"),
                       ),
               ],
             ),

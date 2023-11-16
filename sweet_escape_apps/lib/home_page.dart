@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
                   Container(
                       height: 140,
                       width: double.infinity,
-                      color: const Color.fromARGB(255, 38, 135, 232)),
+                      color: const Color.fromARGB(255, 138, 183, 186)),
                   Column(
                     children: [
                       const SizedBox(
@@ -128,16 +128,19 @@ class _HomePageState extends State<HomePage> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)),
                     elevation: 10,
-                    child: Column(children: [
-                      SizedBox(
-                        width: double.infinity,
-                        height: tinggi * 0.2,
-                        child: Image.asset(
-                          "images/bali.jpg",
-                          fit: BoxFit.cover,
-                        ),
-                      )
-                    ]),
+                    child: Container(
+                      color: const Color.fromARGB(255, 138, 183, 186),
+                      child: Column(children: [
+                        SizedBox(
+                          width: double.infinity,
+                          height: tinggi * 0.2,
+                          child: Image.asset(
+                            "images/bali.jpg",
+                            fit: BoxFit.cover,
+                          ),
+                        )
+                      ]),
+                    ),
                   ),
                   Positioned(
                     bottom: 0,
@@ -162,11 +165,12 @@ class _HomePageState extends State<HomePage> {
                                   Icons.star,
                                   color: Colors.amber,
                                 ),
-                                Text("4.9"),
+                                const Text("4.9"),
                                 const SizedBox(width: 20),
                                 const Icon(
                                   Icons.place,
-                                  color: Colors.grey,
+                                  color:
+                                      const Color.fromARGB(255, 241, 213, 189),
                                 ),
                                 const SizedBox(width: 5),
                                 Text(
@@ -190,11 +194,21 @@ class _HomePageState extends State<HomePage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => DetailPageBali(),
+                            builder: (context) => const DetailPageBali(),
                           ),
                         );
                       },
                       child: Text("Details"),
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor:
+                            const Color.fromARGB(255, 102, 162, 173),
+                        padding: const EdgeInsets.fromLTRB(
+                            20, 10, 20, 10), // Padding tombol
+                        shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.circular(20), // Bentuk tepi tombol
+                        ),
+                      ),
                     ),
                   ),
                 ]),
@@ -210,16 +224,19 @@ class _HomePageState extends State<HomePage> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)),
                     elevation: 10,
-                    child: Column(children: [
-                      SizedBox(
-                        width: double.infinity,
-                        height: tinggi * 0.2,
-                        child: Image.asset(
-                          "images/malang.jpg",
-                          fit: BoxFit.cover,
-                        ),
-                      )
-                    ]),
+                    child: Container(
+                      color: const Color.fromARGB(255, 138, 183, 186),
+                      child: Column(children: [
+                        SizedBox(
+                          width: double.infinity,
+                          height: tinggi * 0.2,
+                          child: Image.asset(
+                            "images/malang.jpg",
+                            fit: BoxFit.cover,
+                          ),
+                        )
+                      ]),
+                    ),
                   ),
                   Positioned(
                     bottom: 0,
@@ -244,11 +261,11 @@ class _HomePageState extends State<HomePage> {
                                   Icons.star,
                                   color: Colors.amber,
                                 ),
-                                Text("4.5"),
+                                const Text("4.5"),
                                 const SizedBox(width: 20),
                                 const Icon(
                                   Icons.place,
-                                  color: Colors.grey,
+                                  color: Color.fromARGB(255, 241, 213, 189),
                                 ),
                                 const SizedBox(width: 5),
                                 Text(
@@ -270,13 +287,23 @@ class _HomePageState extends State<HomePage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => DetailPageMalang(),
+                            builder: (context) => const DetailPageMalang(),
                           ),
                         );
                       },
-                      child: Text("Details"),
+                      child: const Text("Details"),
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor:
+                            const Color.fromARGB(255, 102, 162, 173),
+                        padding: const EdgeInsets.fromLTRB(
+                            20, 10, 20, 10), // Padding tombol
+                        shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.circular(20), // Bentuk tepi tombol
+                        ),
+                      ),
                     ),
-                  ),
+                  )
                 ]),
               ),
 
@@ -290,16 +317,19 @@ class _HomePageState extends State<HomePage> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)),
                     elevation: 10,
-                    child: Column(children: [
-                      SizedBox(
-                        width: double.infinity,
-                        height: tinggi * 0.2,
-                        child: Image.asset(
-                          "images/jogja.jpg",
-                          fit: BoxFit.cover,
-                        ),
-                      )
-                    ]),
+                    child: Container(
+                      color: const Color.fromARGB(255, 138, 183, 186),
+                      child: Column(children: [
+                        SizedBox(
+                          width: double.infinity,
+                          height: tinggi * 0.2,
+                          child: Image.asset(
+                            "images/jogja.jpg",
+                            fit: BoxFit.cover,
+                          ),
+                        )
+                      ]),
+                    ),
                   ),
                   Positioned(
                     bottom: 0,
@@ -324,11 +354,12 @@ class _HomePageState extends State<HomePage> {
                                   Icons.star,
                                   color: Colors.amber,
                                 ),
-                                Text("4.7"),
+                                const Text("4.7"),
                                 const SizedBox(width: 20),
                                 const Icon(
                                   Icons.place,
-                                  color: Colors.grey,
+                                  color:
+                                      const Color.fromARGB(255, 241, 213, 189),
                                 ),
                                 const SizedBox(width: 5),
                                 Text(
@@ -350,11 +381,21 @@ class _HomePageState extends State<HomePage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => DetailPageJogja(),
+                            builder: (context) => const DetailPageJogja(),
                           ),
                         );
                       },
-                      child: Text("Details"),
+                      child: const Text("Details"),
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor:
+                            const Color.fromARGB(255, 102, 162, 173),
+                        padding: const EdgeInsets.fromLTRB(
+                            20, 10, 20, 10), // Padding tombol
+                        shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.circular(20), // Bentuk tepi tombol
+                        ),
+                      ),
                     ),
                   ),
                 ]),
@@ -378,6 +419,7 @@ class Category extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Color.fromARGB(255, 102, 162, 173),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Container(

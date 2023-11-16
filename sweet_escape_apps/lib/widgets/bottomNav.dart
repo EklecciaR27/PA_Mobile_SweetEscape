@@ -53,21 +53,22 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
         BottomNavigationBarItem(
           icon: Icon(
             Icons.home_filled,
-            color: Color.fromRGBO(123, 120, 255, 1.0),
+            color: Color.fromARGB(255, 102, 162, 173),
           ),
           // activeIcon: Icon(Icons.home, color:Color.fromRGBO(123, 120, 255, 1.0) ,),
           label: "Home",
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.reviews, color: Color(0xFF1E0E4F)),
+          icon: Icon(Icons.book_online_outlined,
+              color: Color.fromARGB(255, 102, 162, 173)),
           // activeIcon: Icon(Icons.home,
           // color:Color.fromRGBO(123, 120, 255, 1.0) ,),
-          label: "Add Review",
+          label: "book",
         ),
         BottomNavigationBarItem(
           icon: Icon(
             Icons.person,
-            color: Color.fromRGBO(123, 120, 255, 1.0),
+            color: Color.fromARGB(255, 102, 162, 173),
           ),
           // activeIcon: Icon(Icons.favorite,
           // color:Color(0xFF1E0E4F) ,),
@@ -76,7 +77,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
         BottomNavigationBarItem(
           icon: Icon(
             Icons.settings,
-            color: Color.fromRGBO(123, 120, 255, 1.0),
+            color: Color.fromARGB(255, 102, 162, 173),
           ),
           // activeIcon: Icon(Icons.favorite,
           // color:Color(0xFF1E0E4F) ,),
@@ -84,16 +85,15 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
         ),
       ],
       selectedItemColor:
-          Color.fromARGB(255, 4, 0, 255), // Warna saat item dipilih
-      unselectedItemColor: const Color.fromRGBO(
-          123, 120, 255, 1.0), // Warna saat item tidak dipilih
+          Color.fromARGB(255, 0, 0, 0), // Warna saat item dipilih
+      unselectedItemColor:
+          Color.fromARGB(255, 0, 0, 0), // Warna saat item tidak dipilih
       unselectedLabelStyle: const TextStyle(
         color: Colors.black, // Warna teks label saat item tidak dipilih
       ),
       selectedLabelStyle: const TextStyle(
         color: Colors.black, // Warna teks label saat item dipilih
       ),
-
       backgroundColor: Theme.of(context)
           .bottomAppBarTheme
           .color, //pake warna yang ada di theme main
