@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sweet_escape_apps/ProfileScreen.dart';
 import 'package:sweet_escape_apps/home_page.dart';
 import 'package:sweet_escape_apps/input_page.dart';
 
@@ -31,11 +32,11 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => Reservasi()));
     }
-    // if (index == 2) {
-    //   // Periksa apakah indeks yang dipilih adalah 1 (output Review)
-    //   Navigator.push(
-    //       context, MaterialPageRoute(builder: (context) => AboutMePage()));
-    // }
+    if (index == 2) {
+      // Periksa apakah indeks yang dipilih adalah 1 (output Review)
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const ProfileScreen()));
+    }
     //  if (index == 3) {
     //   // Periksa apakah indeks yang dipilih adalah 1 (output Review)
     //   Navigator.push(
@@ -85,9 +86,9 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
         ),
       ],
       selectedItemColor:
-          Color.fromARGB(255, 0, 0, 0), // Warna saat item dipilih
+          const Color.fromARGB(255, 0, 0, 0), // Warna saat item dipilih
       unselectedItemColor:
-          Color.fromARGB(255, 0, 0, 0), // Warna saat item tidak dipilih
+          const Color.fromARGB(255, 0, 0, 0), // Warna saat item tidak dipilih
       unselectedLabelStyle: const TextStyle(
         color: Colors.black, // Warna teks label saat item tidak dipilih
       ),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-
 class Confirmation extends StatelessWidget {
   final String? name;
   final String? numbphone;

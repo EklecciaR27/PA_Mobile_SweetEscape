@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-import 'UpdateProfil.dart';
+
 import 'ProfileMenuWidget.dart';
 import 'package:get/get.dart';
-
-
 
 const String tProfileImage = "image/logo.jpeg";
 const String tProfile = "muhammad novan";
@@ -23,10 +21,9 @@ const String tJoin = "12-11-2003";
 const String tJoined = "11-12-2004";
 const String tJoinedAt = "10-10-2023";
 const double tDefaultSize = 16.0;
-const Color tPrimaryColor = Colors.blue; 
+const Color tPrimaryColor = Colors.blue;
 const Color tDarkColor = Colors.black;
 const Color tAccentColor = Colors.yellowAccent;
-
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -36,9 +33,15 @@ class ProfileScreen extends StatelessWidget {
     var isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(onPressed: () => Get.back(), icon: const Icon(LineAwesomeIcons.angle_left)),
+        leading: IconButton(
+            onPressed: () => Get.back(),
+            icon: const Icon(LineAwesomeIcons.angle_left)),
         title: Text(tProfile, style: Theme.of(context).textTheme.headline4),
-        actions: [IconButton(onPressed: () {}, icon: Icon(isDark ? LineAwesomeIcons.sun : LineAwesomeIcons.moon))],
+        actions: [
+          IconButton(
+              onPressed: () {},
+              icon: Icon(isDark ? LineAwesomeIcons.sun : LineAwesomeIcons.moon))
+        ],
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -46,7 +49,6 @@ class ProfileScreen extends StatelessWidget {
           padding: const EdgeInsets.all(tDefaultSize),
           child: Column(
             children: [
-
               /// -- IMAGE
               Stack(
                 children: [
@@ -54,7 +56,8 @@ class ProfileScreen extends StatelessWidget {
                     width: 120,
                     height: 120,
                     child: ClipRRect(
-                        borderRadius: BorderRadius.circular(100), child: const Image(image: AssetImage(tProfileImage))),
+                        borderRadius: BorderRadius.circular(100),
+                        child: const Image(image: AssetImage(tProfileImage))),
                   ),
                   Positioned(
                     bottom: 0,
@@ -62,7 +65,9 @@ class ProfileScreen extends StatelessWidget {
                     child: Container(
                       width: 35,
                       height: 35,
-                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(100), color: tPrimaryColor),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(100),
+                          color: tPrimaryColor),
                       child: const Icon(
                         LineAwesomeIcons.alternate_pencil,
                         color: Colors.black,
@@ -73,31 +78,48 @@ class ProfileScreen extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 10),
-              Text(tProfileHeading, style: Theme.of(context).textTheme.headline4),
-              Text(tProfileSubHeading, style: Theme.of(context).textTheme.bodyText2),
+              Text(tProfileHeading,
+                  style: Theme.of(context).textTheme.headline4),
+              Text(tProfileSubHeading,
+                  style: Theme.of(context).textTheme.bodyText2),
               const SizedBox(height: 20),
 
               /// -- BUTTON
               SizedBox(
                 width: 200,
-                child: ElevatedButton(
-                  onPressed: () => Get.to(() => UpdateProfileScreen()),
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: tPrimaryColor, side: BorderSide.none, shape: const StadiumBorder()),
-                  child: const Text(tEditProfile, style: TextStyle(color: tDarkColor)),
-                ),
+                // child: ElevatedButton(
+                //   onPressed: () => Get.to(() => UpdateProfileScreen()),
+                //   style: ElevatedButton.styleFrom(
+                //       backgroundColor: tPrimaryColor,
+                //       side: BorderSide.none,
+                //       shape: const StadiumBorder()),
+                //   child: const Text(tEditProfile,
+                //       style: TextStyle(color: tDarkColor)),
+                // ),
               ),
               const SizedBox(height: 30),
               const Divider(),
               const SizedBox(height: 10),
 
               /// -- MENU
-              ProfileMenuWidget(title: "Settings", icon: LineAwesomeIcons.cog, onPress: () {}),
-              ProfileMenuWidget(title: "Billing Details", icon: LineAwesomeIcons.wallet, onPress: () {}),
-              ProfileMenuWidget(title: "User Management", icon: LineAwesomeIcons.user_check, onPress: () {}),
+              ProfileMenuWidget(
+                  title: "Settings",
+                  icon: LineAwesomeIcons.cog,
+                  onPress: () {}),
+              ProfileMenuWidget(
+                  title: "Billing Details",
+                  icon: LineAwesomeIcons.wallet,
+                  onPress: () {}),
+              ProfileMenuWidget(
+                  title: "User Management",
+                  icon: LineAwesomeIcons.user_check,
+                  onPress: () {}),
               const Divider(),
               const SizedBox(height: 10),
-              ProfileMenuWidget(title: "Information", icon: LineAwesomeIcons.info, onPress: () {}),
+              ProfileMenuWidget(
+                  title: "Information",
+                  icon: LineAwesomeIcons.info,
+                  onPress: () {}),
               ProfileMenuWidget(
                   title: "Logout",
                   icon: LineAwesomeIcons.alternate_sign_out,
@@ -113,15 +135,17 @@ class ProfileScreen extends StatelessWidget {
                       ),
                       confirm: Expanded(
                         child: ElevatedButton(
-                          
                           //=> AuthenticationRepository.instance.logout
-                          
-                          style: ElevatedButton.styleFrom(backgroundColor: Colors.redAccent, side: BorderSide.none),
-                          onPressed: () {  },
+
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.redAccent,
+                              side: BorderSide.none),
+                          onPressed: () {},
                           child: const Text("Yes"),
                         ),
                       ),
-                      cancel: OutlinedButton(onPressed: () => Get.back(), child: const Text("No")),
+                      cancel: OutlinedButton(
+                          onPressed: () => Get.back(), child: const Text("No")),
                     );
                   }),
             ],
