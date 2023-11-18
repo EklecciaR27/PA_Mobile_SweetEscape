@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1079109317565",
+    "project_id": "papemo-7bff6",
+    "storage_bucket": "papemo-7bff6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1079109317565:android:96577cc402e91ea79ad8d4",
+        "android_client_info": {
+          "package_name": "com.example.sweet_escape_apps"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHW1gKHQLV4RBvrzl21l2J9BzZEcmtX84"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

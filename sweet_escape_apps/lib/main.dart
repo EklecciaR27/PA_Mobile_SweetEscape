@@ -1,9 +1,17 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:sweet_escape_apps/OnBoarding_Screen.dart';
-import 'package:sweet_escape_apps/home_page.dart';
-import 'package:sweet_escape_apps/input_page.dart';
+import 'package:sweet_escape_apps/firebase_options.dart';
 
-void main() {
+import 'signIn.dart';
+
+void main() async {
+  WidgetsFlutterBinding
+      .ensureInitialized(); //untuk datanya bisa masuk dalam firebasenya
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -19,7 +27,16 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const OnBoardingScreen(),
+      home: StreamBuilder<User?>(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return const OnBoardingScreen();
+          } else {
+            return const Login();
+          }
+        },
+      ),
       //home: const reservasi(),
     );
   }
