@@ -3,7 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:sweet_escape_apps/OnBoarding_Screen.dart';
 import 'package:sweet_escape_apps/firebase_options.dart';
-
+import 'package:sweet_escape_apps/input_page.dart';
 import 'signIn.dart';
 
 void main() async {
@@ -23,21 +23,24 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Color(0xFF66A2AD),
+        ),
         useMaterial3: true,
       ),
-      home: StreamBuilder<User?>(
-        stream: FirebaseAuth.instance.authStateChanges(),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return const OnBoardingScreen();
-          } else {
-            return const Login();
-          }
-        },
-      ),
-      //home: const reservasi(),
+      // home: StreamBuilder<User?>(
+      //   stream: FirebaseAuth.instance.authStateChanges(),
+      //   builder: (context, snapshot) {
+      //     if (snapshot.hasData) {
+      //       return const Reservasi();
+      //     } else {
+      //       return const Login();
+      //     }
+      //   },
+      // ),
+      home: Reservasi(),
     );
   }
 }
