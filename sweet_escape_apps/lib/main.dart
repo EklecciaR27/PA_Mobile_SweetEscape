@@ -8,8 +8,7 @@ import 'package:sweet_escape_apps/input_page.dart';
 import 'signIn.dart';
 
 void main() async {
-  WidgetsFlutterBinding
-      .ensureInitialized(); //untuk datanya bisa masuk dalam firebasenya
+  //untuk datanya bisa masuk dalam firebasenya
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -41,7 +40,7 @@ class MyApp extends StatelessWidget {
           }
         },
       ),
-      //home: Reservasi(),
+      //Reservasi(),
     );
   }
 }

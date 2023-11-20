@@ -1,8 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, must_be_immutable, prefer_final_fields
 
-import 'package:sweet_escape_apps/authentication.dart';
-import 'package:sweet_escape_apps/signUp.dart';
 import 'package:flutter/material.dart';
+
+import 'authentication.dart';
+import 'signUp.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
