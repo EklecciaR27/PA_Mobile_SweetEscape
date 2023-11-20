@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'confirmation.dart';
+import 'confirmation_page.dart';
 import 'package:intl/intl.dart';
 import 'widgets/bottomNav.dart';
 
@@ -263,7 +263,7 @@ class _ReservasiState extends State<Reservasi> {
                         numbphone,
                         radioValue,
                         selectedDate,
-                        reservations,
+                        reservations
                       ),
                     ),
                   );
@@ -277,7 +277,7 @@ class _ReservasiState extends State<Reservasi> {
                 ),
                 child: Text("SUBMIT"),
               ),
-              SizedBox(height: 80),
+              // SizedBox(height: 80),
             ],
           ),
         ),

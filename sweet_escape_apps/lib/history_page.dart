@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class Confirmation extends StatelessWidget {
+class History extends StatelessWidget {
   final String? name;
   final String? numbphone;
   final String? radioValue;
   final DateTime? selectedDate;
   final List<Map<String, dynamic>> reservations;
 
-  Confirmation(this.name, this.numbphone, this.radioValue, this.selectedDate,
+  History(this.name, this.numbphone, this.radioValue, this.selectedDate,
       this.reservations);
 
   @override
