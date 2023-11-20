@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:sweet_escape_apps/OnBoarding_Screen.dart';
 import 'package:sweet_escape_apps/firebase_options.dart';
+import 'package:sweet_escape_apps/home_page.dart';
 import 'package:sweet_escape_apps/input_page.dart';
 import 'signIn.dart';
 
@@ -30,17 +31,17 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      // home: StreamBuilder<User?>(
-      //   stream: FirebaseAuth.instance.authStateChanges(),
-      //   builder: (context, snapshot) {
-      //     if (snapshot.hasData) {
-      //       return const Reservasi();
-      //     } else {
-      //       return const Login();
-      //     }
-      //   },
-      // ),
-      home: Reservasi(),
+      home: StreamBuilder<User?>(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return const HomePage();
+          } else {
+            return const Login();
+          }
+        },
+      ),
+      //home: Reservasi(),
     );
   }
 }

@@ -44,37 +44,37 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCqHUg6RhomecD0yL99hvOd68oQcm8bfe0',
-    appId: '1:1079109317565:web:8cc9ae92ca0072ad9ad8d4',
-    messagingSenderId: '1079109317565',
-    projectId: 'papemo-7bff6',
-    authDomain: 'papemo-7bff6.firebaseapp.com',
-    storageBucket: 'papemo-7bff6.appspot.com',
+    apiKey: 'AIzaSyAdOUuQ-TF4el44Uf8uxTPMT-mqR5t6ncI',
+    appId: '1:960107140411:web:4c9c9e592635889dc1d31e',
+    messagingSenderId: '960107140411',
+    projectId: 'sweetescape-e13b6',
+    authDomain: 'sweetescape-e13b6.firebaseapp.com',
+    storageBucket: 'sweetescape-e13b6.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCHW1gKHQLV4RBvrzl21l2J9BzZEcmtX84',
-    appId: '1:1079109317565:android:96577cc402e91ea79ad8d4',
-    messagingSenderId: '1079109317565',
-    projectId: 'papemo-7bff6',
-    storageBucket: 'papemo-7bff6.appspot.com',
+    apiKey: 'AIzaSyASd1Zm2XhPjy5wb89c5jwddVMoiyHL21c',
+    appId: '1:960107140411:android:96423f3e12c9dc91c1d31e',
+    messagingSenderId: '960107140411',
+    projectId: 'sweetescape-e13b6',
+    storageBucket: 'sweetescape-e13b6.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCyqZ3lUn7re_KnyS3ytcljM2YcS0saFqo',
-    appId: '1:1079109317565:ios:0859c71e67cd063c9ad8d4',
-    messagingSenderId: '1079109317565',
-    projectId: 'papemo-7bff6',
-    storageBucket: 'papemo-7bff6.appspot.com',
+    apiKey: 'AIzaSyCEN_Gxwaz7L_ymqQ_0zmgHElkNfiGQ4BE',
+    appId: '1:960107140411:ios:65026de1b6a42163c1d31e',
+    messagingSenderId: '960107140411',
+    projectId: 'sweetescape-e13b6',
+    storageBucket: 'sweetescape-e13b6.appspot.com',
     iosBundleId: 'com.example.sweetEscapeApps',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCyqZ3lUn7re_KnyS3ytcljM2YcS0saFqo',
-    appId: '1:1079109317565:ios:cc78a437e83641cb9ad8d4',
-    messagingSenderId: '1079109317565',
-    projectId: 'papemo-7bff6',
-    storageBucket: 'papemo-7bff6.appspot.com',
+    apiKey: 'AIzaSyCEN_Gxwaz7L_ymqQ_0zmgHElkNfiGQ4BE',
+    appId: '1:960107140411:ios:6fe3b2b17979371bc1d31e',
+    messagingSenderId: '960107140411',
+    projectId: 'sweetescape-e13b6',
+    storageBucket: 'sweetescape-e13b6.appspot.com',
     iosBundleId: 'com.example.sweetEscapeApps.RunnerTests',
   );
 }
