@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +22,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    FirebaseFirestore firestore = FirebaseFirestore.instance;//fungsi  buat akses atribut dari fungsi di firestore 
+    CollectionReference dataReservasi = firestore.collection("data_reservasi"); //buat tabel
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
