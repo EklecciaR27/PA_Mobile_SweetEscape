@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sweet_escape_apps/home_page.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sweet_escape_apps/input_page.dart';
 
 class DetailPageMalang extends StatelessWidget {
   const DetailPageMalang({super.key});
@@ -111,7 +112,7 @@ class DetailPageMalang extends StatelessWidget {
               ),
             ),
 
-            // //card promo
+            // //card book
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Card(
@@ -133,7 +134,17 @@ class DetailPageMalang extends StatelessWidget {
                           ),
                         ],
                       ),
-                      ElevatedButton(onPressed: () {}, child: Text("BOOK NOW"))
+                      ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                  Reservasi(imagePath: "images/malang.jpg"),
+                              ),
+                            );
+                          },
+                          child: Text("BOOK NOW"))
                     ],
                   ),
                 ),
@@ -163,7 +174,7 @@ class DetailPageMalang extends StatelessWidget {
             ),
 
             // deskripsi
-             Padding(
+            Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -177,14 +188,13 @@ class DetailPageMalang extends StatelessWidget {
                     height: 10,
                   ),
                   Text(
-                    "Gunung Bromo, sejauh mata memandang di Jawa Timur, adalah perpaduan indah antara keajaiban alam dan keteguhan spiritual. Panorama gunung berapi yang megah, kawah yang berkabut, dan lautan pasir yang luas menciptakan lanskap yang luar biasa. Cahaya matahari terbit di balik gunung-gunung menjadikan langit sebagai kanvas yang memukau, menawarkan pengalaman fotografi yang tak tertandingi. \n Suasana mistis dan keagungan alam berkumpul, menciptakan atmosfer yang memikat hati. Ketika kabut tipis merayap di sekitar gunung, Bromo memancarkan pesona magis yang menantang untuk diabadikan. Momennya yang dramatis, dengan kuda-kuda perkasa dan penduduk lokal yang berbusana warna-warni, menjadi latar sempurna untuk mengabadikan momen tak terlupakan. \n Jadi, hadirlah di Gunung Bromo dengan kamera di tanganmu. Biarkan dirimu terperangkap dalam keindahan yang memukau, dan biarkan kamera menjadi saksi bisu setiap detik keajaiban di destinasi ini. ",
+                      "Gunung Bromo, sejauh mata memandang di Jawa Timur, adalah perpaduan indah antara keajaiban alam dan keteguhan spiritual. Panorama gunung berapi yang megah, kawah yang berkabut, dan lautan pasir yang luas menciptakan lanskap yang luar biasa. Cahaya matahari terbit di balik gunung-gunung menjadikan langit sebagai kanvas yang memukau, menawarkan pengalaman fotografi yang tak tertandingi. \n Suasana mistis dan keagungan alam berkumpul, menciptakan atmosfer yang memikat hati. Ketika kabut tipis merayap di sekitar gunung, Bromo memancarkan pesona magis yang menantang untuk diabadikan. Momennya yang dramatis, dengan kuda-kuda perkasa dan penduduk lokal yang berbusana warna-warni, menjadi latar sempurna untuk mengabadikan momen tak terlupakan. \n Jadi, hadirlah di Gunung Bromo dengan kamera di tanganmu. Biarkan dirimu terperangkap dalam keindahan yang memukau, dan biarkan kamera menjadi saksi bisu setiap detik keajaiban di destinasi ini. ",
                       style: GoogleFonts.montserrat(
                         fontSize: 14,
                       ))
                 ],
               ),
             ),
-
 
             // ulasan
             Padding(
@@ -252,4 +262,3 @@ class Comment extends StatelessWidget {
     );
   }
 }
-

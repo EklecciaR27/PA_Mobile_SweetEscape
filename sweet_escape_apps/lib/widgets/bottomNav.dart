@@ -29,8 +29,8 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
     }
     if (index == 1) {
       // Periksa apakah indeks yang dipilih adalah 1 (input Review)
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => Reservasi()));
+      // Navigator.push(
+      //     context, MaterialPageRoute(builder: (context) => const Reservasi()));
     }
     if (index == 2) {
       // Periksa apakah indeks yang dipilih adalah 1 (output Review)

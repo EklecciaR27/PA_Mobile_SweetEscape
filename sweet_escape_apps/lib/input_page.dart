@@ -1,9 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:sweet_escape_apps/models/reservation_provider.dart';
+import 'package:sweet_escape_apps/models/reservation.dart';
+import 'package:sweet_escape_apps/widgets/bottomNav.dart';
 import 'confirmation_page.dart';
 import 'package:intl/intl.dart';
-import 'widgets/bottomNav.dart';
+import 'package:provider/provider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 
 class Reservasi extends StatefulWidget {
+  //image path dari page yang ingin di reservasi
+  final String imagePath; 
+
+  Reservasi({required this.imagePath});
+  
+
   @override
   _ReservasiState createState() => _ReservasiState();
 }
@@ -21,16 +32,39 @@ class _ReservasiState extends State<Reservasi> {
 
   List<Map<String, dynamic>> reservations = [];
 
-  void _incrementCounter() {
-    setState(() {
-      reservations.add({
-        'name': name,
-        'numbphone': numbphone,
-        'radioValue': radioValue,
-        'selectedDate': selectedDate,
-      });
-    });
+  // void _incrementCounter() {
+  //   setState(() {
+  //     reservations.add({
+  //       'name': name,
+  //       'numbphone': numbphone,
+  //       'radioValue': radioValue,
+  //       'selectedDate': selectedDate,
+  //     });
+  //   });
+  // }
+
+  //reser pro
+  void _incrementCounter(ReservationProvider reservationProvider) {
+     User? user = FirebaseAuth.instance.currentUser;
+
+    if (user != null) {
+      // ambil emailnya
+      String userEmail = user.email ?? '';
+    
+      final newReservation = Reservation(
+        name: name!,
+        numbphone: numbphone!,
+        radioValue: radioValue,
+        selectedDate: selectedDate!,
+        email: userEmail, 
+      );
+
+      // Tambahkan data reservasi ke menggunakan Provider
+      reservationProvider.addReservation(newReservation);
+    }
   }
+
+  
 
   final TextEditingController _controller = TextEditingController();
 
@@ -62,7 +96,7 @@ class _ReservasiState extends State<Reservasi> {
                 height: 150,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("images/bali.jpg"),
+                    image: AssetImage(widget.imagePath),
                     fit: BoxFit.fill,
                   ),
                 ),
@@ -255,7 +289,12 @@ class _ReservasiState extends State<Reservasi> {
               SizedBox(height: 50),
               ElevatedButton(
                 onPressed: () {
-                  _incrementCounter();
+                  //_incrementCounter();
+                  final reservationProvider = Provider.of<ReservationProvider>(
+            context,
+            listen: false,
+          );
+          _incrementCounter(reservationProvider);
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => Confirmation(

@@ -7,13 +7,21 @@ import 'package:sweet_escape_apps/firebase_options.dart';
 import 'package:sweet_escape_apps/home_page.dart';
 import 'package:sweet_escape_apps/input_page.dart';
 import 'signIn.dart';
+import 'package:sweet_escape_apps/models/reservation_provider.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   //untuk datanya bisa masuk dalam firebasenya
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  runApp( 
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => ReservationProvider()),
+      ],
+      child: MyApp(),
+    ),);
 }
 
 class MyApp extends StatelessWidget {

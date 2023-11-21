@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sweet_escape_apps/home_page.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sweet_escape_apps/input_page.dart';
 
 class DetailPageJogja extends StatelessWidget {
   const DetailPageJogja({super.key});
@@ -133,7 +134,15 @@ class DetailPageJogja extends StatelessWidget {
                           ),
                         ],
                       ),
-                      ElevatedButton(onPressed: () {}, child: Text("BOOK NOW"))
+                      ElevatedButton(onPressed: () {
+                         Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                  Reservasi(imagePath: "images/jogja.jpg"),
+                              ),
+                            );
+                      }, child: Text("BOOK NOW"))
                     ],
                   ),
                 ),
