@@ -15,13 +15,14 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp( 
+  runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => ReservationProvider()),
       ],
       child: MyApp(),
-    ),);
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -30,28 +31,21 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    FirebaseFirestore firestore = FirebaseFirestore.instance;//fungsi  buat akses atribut dari fungsi di firestore 
-    CollectionReference dataReservasi = firestore.collection("data_reservasi"); //buat tabel
+    FirebaseFirestore firestore = FirebaseFirestore
+        .instance; //fungsi  buat akses atribut dari fungsi di firestore
+    CollectionReference dataReservasi =
+        firestore.collection("data_reservasi"); //buat tabel
     return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Color(0xFF66A2AD),
+        title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: Color(0xFF66A2AD),
+          ),
+          useMaterial3: true,
         ),
-        useMaterial3: true,
-      ),
-      home: StreamBuilder<User?>(
-        stream: FirebaseAuth.instance.authStateChanges(),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return const HomePage();
-          } else {
-            return const Login();
-          }
-        },
-      ),
-      //Reservasi(),
-    );
+        home: const OnBoardingScreen()
+        //Reservasi(),
+        );
   }
 }

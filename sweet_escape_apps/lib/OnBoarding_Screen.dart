@@ -1,9 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:sweet_escape_apps/home_page.dart';
 import 'package:sweet_escape_apps/intro_screen/Intro1.dart';
 import 'package:sweet_escape_apps/intro_screen/intro2.dart';
 import 'package:sweet_escape_apps/intro_screen/intro3.dart';
+import 'package:sweet_escape_apps/signIn.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({Key? key}) : super(key: key);
@@ -26,11 +28,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             controller: _controller,
             onPageChanged: (index) {
               setState(() {
-                onLastpage = (index == 2);
+                onLastpage = (index == 1);
               });
             },
             children: const [
-              Intro1(),
+              //Intro1(),
               Intro2(),
               Intro3(),
             ],
@@ -54,7 +56,17 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             context,
                             MaterialPageRoute(
                               builder: (context) {
-                                return const HomePage();
+                                return StreamBuilder<User?>(
+                                  stream:
+                                      FirebaseAuth.instance.authStateChanges(),
+                                  builder: (context, snapshot) {
+                                    if (snapshot.hasData) {
+                                      return const HomePage();
+                                    } else {
+                                      return const Login();
+                                    }
+                                  },
+                                );
                               },
                             ),
                           );

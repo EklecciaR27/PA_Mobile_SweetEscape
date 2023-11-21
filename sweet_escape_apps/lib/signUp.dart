@@ -32,74 +32,96 @@ class _RegisState extends State<Regis> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      body: Container(
+        decoration: BoxDecoration(
+          color: Color(0xFF66A2AD),
+        ),
         child: Form(
           key: _formKey,
           child: Padding(
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Register",
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
+            padding: const EdgeInsets.all(0),
+            child: Container(
+              margin: EdgeInsets.only(top: 230),
+              width: 500,
+              height: 900,
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 255, 255, 255),
+                borderRadius: BorderRadius.only(topLeft: Radius.circular(60)),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(30.0),
+                child: Container(
+                  margin: EdgeInsets.only(top: 10),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Register",
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 50),
+                      TextFormField(
+                        controller: _ctrlEmail,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Silakan Masukkan Email Anda';
+                          }
+                          return null;
+                        },
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(40.0)),
+                          hintText: 'Email',
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      TextFormField(
+                        controller: _ctrlPassword,
+                        obscureText: true,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Silakan Masukkan Password Anda';
+                          }
+                          return null;
+                        },
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(40.0)),
+                          hintText: 'Password',
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      ElevatedButton(
+                        onPressed: () => handleSubmit(),
+                        child: _loading
+                            ? const SizedBox(
+                                width: 20,
+                                height: 20,
+                                child: CircularProgressIndicator(
+                                  color: Colors.white,
+                                  strokeWidth: 2,
+                                ),
+                              )
+                            : Text("Submit"),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => Login()));
+                        },
+                        child:
+                            Text("Sudah Punya Akun? Klik Disini Untuk Login"),
+                      )
+                    ],
                   ),
                 ),
-                TextFormField(
-                  controller: _ctrlEmail,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Silakan Masukkan Email Anda';
-                    }
-                    return null;
-                  },
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: 'Email',
-                  ),
-                ),
-                SizedBox(height: 10),
-                TextFormField(
-                  controller: _ctrlPassword,
-                  obscureText: true,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Silakan Masukkan Password Anda';
-                    }
-                    return null;
-                  },
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: 'Password',
-                  ),
-                ),
-                SizedBox(height: 10),
-                ElevatedButton(
-                  onPressed: () => handleSubmit(),
-                  child: _loading
-                      ? const SizedBox(
-                          width: 20,
-                          height: 20,
-                          child: CircularProgressIndicator(
-                            color: Colors.white,
-                            strokeWidth: 2,
-                          ),
-                        )
-                      : Text("Submit"),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Login()));
-                  },
-                  child: Text("Sudah Punya Akun? Klik Disini Untuk Login"),
-                )
-              ],
+              ),
             ),
           ),
         ),

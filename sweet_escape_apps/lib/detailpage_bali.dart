@@ -23,7 +23,7 @@ class DetailPageBali extends StatelessWidget {
                 Container(
                   height: height * 0.4,
                   width: width,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       image: DecorationImage(
                           fit: BoxFit.cover,
                           image: AssetImage("images/bali.jpg"))),
@@ -35,23 +35,23 @@ class DetailPageBali extends StatelessWidget {
                     left: 16,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color.fromRGBO(127, 127, 127, 1),
+                        backgroundColor: const Color.fromRGBO(127, 127, 127, 1),
                       ),
                       onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => HomePage(),
+                            builder: (context) => const HomePage(),
                           ),
                         );
                       },
                       child: Container(
-                        child: Icon(
+                        child: const Icon(
                           Icons.arrow_back,
                           color: Colors.white,
                         ),
-                        padding: EdgeInsets.all(4),
-                        decoration: BoxDecoration(
+                        padding: const EdgeInsets.all(4),
+                        decoration: const BoxDecoration(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(20))),
                       ),
@@ -60,7 +60,7 @@ class DetailPageBali extends StatelessWidget {
                 Container(
                   height: height * 0.1,
                   width: double.infinity,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(20),
@@ -85,11 +85,11 @@ class DetailPageBali extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.star,
                         color: Colors.amber,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 5,
                       ),
                       Text("4.9", style: GoogleFonts.montserrat(fontSize: 12)),
@@ -97,11 +97,11 @@ class DetailPageBali extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.access_time,
                         color: Colors.grey,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 5,
                       ),
                       Text("Morning - Evening",
@@ -142,7 +142,7 @@ class DetailPageBali extends StatelessWidget {
                                   Reservasi(imagePath: "images/bali.jpg"),
                               ),
                             );
-                      }, child: Text("BOOK NOW"))
+                      }, child: const Text("BOOK NOW"))
                     ],
                   ),
                 ),
@@ -160,7 +160,7 @@ class DetailPageBali extends StatelessWidget {
                     style: GoogleFonts.montserrat(
                         fontSize: 14, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Text("Ubud | Kintamani | Nusa Penida Island",
@@ -182,7 +182,7 @@ class DetailPageBali extends StatelessWidget {
                     style: GoogleFonts.montserrat(
                         fontSize: 14, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Text(
@@ -205,10 +205,10 @@ class DetailPageBali extends StatelessWidget {
               ),
             ),
 
-            Comment(),
-            Comment(),
-            Comment(),
-            Comment(),
+            const Comment(),
+            const Comment(),
+            const Comment(),
+            const Comment(),
           ],
         )),
       ),
@@ -233,10 +233,10 @@ class Comment extends StatelessWidget {
                 "https://i0.wp.com/studiolorier.com/wp-content/uploads/2018/10/Profile-Round-Sander-Lorier.jpg",
                 width: 30,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Column(
+              const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text("Zoro Xander"),

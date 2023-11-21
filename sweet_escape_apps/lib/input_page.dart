@@ -7,13 +7,11 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-
 class Reservasi extends StatefulWidget {
   //image path dari page yang ingin di reservasi
-  final String imagePath; 
+  final String imagePath;
 
   Reservasi({required this.imagePath});
-  
 
   @override
   _ReservasiState createState() => _ReservasiState();
@@ -45,26 +43,24 @@ class _ReservasiState extends State<Reservasi> {
 
   //reser pro
   void _incrementCounter(ReservationProvider reservationProvider) {
-     User? user = FirebaseAuth.instance.currentUser;
+    User? user = FirebaseAuth.instance.currentUser;
 
     if (user != null) {
       // ambil emailnya
       String userEmail = user.email ?? '';
-    
+
       final newReservation = Reservation(
         name: name!,
         numbphone: numbphone!,
         radioValue: radioValue,
         selectedDate: selectedDate!,
-        email: userEmail, 
+        email: userEmail,
       );
 
       // Tambahkan data reservasi ke menggunakan Provider
       reservationProvider.addReservation(newReservation);
     }
   }
-
-  
 
   final TextEditingController _controller = TextEditingController();
 
@@ -87,7 +83,7 @@ class _ReservasiState extends State<Reservasi> {
         child: Container(
           width: lebar,
           height: tinggi,
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -101,8 +97,8 @@ class _ReservasiState extends State<Reservasi> {
                   ),
                 ),
               ),
-              SizedBox(height: 30),
-              Text(
+              const SizedBox(height: 30),
+              const Text(
                 "Contact Details",
                 style: TextStyle(
                   color: Color(0xFF35656F),
@@ -110,32 +106,28 @@ class _ReservasiState extends State<Reservasi> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               TextFormField(
                 decoration: InputDecoration(
                   labelText: "Full Name",
-                  labelStyle: TextStyle(
+                  labelStyle: const TextStyle(
                     color: Color(0xFF66A2AD),
                   ),
-                  hintText:
-                      "Enter your full name",
+                  hintText: "Enter your full name",
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(
-                        40.0), 
+                    borderRadius: BorderRadius.circular(40.0),
                   ),
                   focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFF66A2AD),
                     ),
-                    borderRadius: BorderRadius.circular(
-                        40.0), 
+                    borderRadius: BorderRadius.circular(40.0),
                   ),
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFFC0CFC8),
                     ),
-                    borderRadius: BorderRadius.circular(
-                        40.0), 
+                    borderRadius: BorderRadius.circular(40.0),
                   ),
                 ),
                 onChanged: (String value) {
@@ -145,11 +137,11 @@ class _ReservasiState extends State<Reservasi> {
                 },
                 focusNode: nameFocus,
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               TextFormField(
                 decoration: InputDecoration(
                   labelText: "Phone Number",
-                  labelStyle: TextStyle(
+                  labelStyle: const TextStyle(
                     color: Color(0xFF66A2AD),
                   ),
                   hintText: "Enter your phone number",
@@ -157,18 +149,16 @@ class _ReservasiState extends State<Reservasi> {
                     borderRadius: BorderRadius.circular(40.0),
                   ),
                   focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFF66A2AD),
                     ),
-                    borderRadius: BorderRadius.circular(
-                        40.0),
+                    borderRadius: BorderRadius.circular(40.0),
                   ),
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFFC0CFC8),
                     ),
-                    borderRadius: BorderRadius.circular(
-                        40.0), 
+                    borderRadius: BorderRadius.circular(40.0),
                   ),
                 ),
                 onChanged: (String value) {
@@ -178,8 +168,8 @@ class _ReservasiState extends State<Reservasi> {
                 },
                 focusNode: phoneFocus,
               ),
-              SizedBox(height: 40),
-              Text(
+              const SizedBox(height: 40),
+              const Text(
                 "Concept",
                 style: TextStyle(
                   color: Color(0xFF35656F),
@@ -187,7 +177,7 @@ class _ReservasiState extends State<Reservasi> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               RadioListTile(
                 value: 'Casual',
                 groupValue: radioValue,
@@ -200,8 +190,8 @@ class _ReservasiState extends State<Reservasi> {
                   'Casual',
                   style: TextStyle(
                     color: radioValue == 'Casual'
-                        ? Color(0xFF35656F)
-                        : Color(0xFF66A2AD),
+                        ? const Color(0xFF35656F)
+                        : const Color(0xFF66A2AD),
                   ),
                 ),
               ),
@@ -217,8 +207,8 @@ class _ReservasiState extends State<Reservasi> {
                   'Vintage',
                   style: TextStyle(
                     color: radioValue == 'Vintage'
-                        ? Color(0xFF35656F)
-                        : Color(0xFF66A2AD),
+                        ? const Color(0xFF35656F)
+                        : const Color(0xFF66A2AD),
                   ),
                 ),
               ),
@@ -234,13 +224,13 @@ class _ReservasiState extends State<Reservasi> {
                   'Formal',
                   style: TextStyle(
                     color: radioValue == 'Formal'
-                        ? Color(0xFF35656F)
-                        : Color(0xFF66A2AD),
+                        ? const Color(0xFF35656F)
+                        : const Color(0xFF66A2AD),
                   ),
                 ),
               ),
-              SizedBox(height: 40),
-              Text(
+              const SizedBox(height: 40),
+              const Text(
                 "Booking Date",
                 style: TextStyle(
                   color: Color(0xFF35656F),
@@ -248,12 +238,12 @@ class _ReservasiState extends State<Reservasi> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Padding(
                 padding: const EdgeInsets.only(left: 20.0),
                 child: Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.calendar_today,
                       color: Color(0xFF66A2AD),
                     ),
@@ -277,8 +267,8 @@ class _ReservasiState extends State<Reservasi> {
                             : 'Select Date',
                         style: TextStyle(
                           color: selectedDate != null
-                              ? Color(0xFF35656F)
-                              : Color(0xFF66A2AD),
+                              ? const Color(0xFF35656F)
+                              : const Color(0xFF66A2AD),
                           fontSize: 15,
                         ),
                       ),
@@ -286,35 +276,30 @@ class _ReservasiState extends State<Reservasi> {
                   ],
                 ),
               ),
-              SizedBox(height: 50),
+              const SizedBox(height: 50),
               ElevatedButton(
                 onPressed: () {
                   //_incrementCounter();
                   final reservationProvider = Provider.of<ReservationProvider>(
-            context,
-            listen: false,
-          );
-          _incrementCounter(reservationProvider);
+                    context,
+                    listen: false,
+                  );
+                  _incrementCounter(reservationProvider);
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => Confirmation(
-                        name,
-                        numbphone,
-                        radioValue,
-                        selectedDate,
-                        reservations
-                      ),
+                      builder: (context) => Confirmation(name, numbphone,
+                          radioValue, selectedDate, reservations),
                     ),
                   );
                 },
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
-                      Color(0xFF8AB7BA)),
-                  foregroundColor: MaterialStateProperty.all(
-                      Color(0xFF35656F)),
-                  fixedSize: MaterialStateProperty.all(Size(100.0, 50.0)),
+                  backgroundColor:
+                      MaterialStateProperty.all(const Color(0xFF8AB7BA)),
+                  foregroundColor:
+                      MaterialStateProperty.all(const Color(0xFF35656F)),
+                  fixedSize: MaterialStateProperty.all(const Size(100.0, 50.0)),
                 ),
-                child: Text("SUBMIT"),
+                child: const Text("SUBMIT"),
               ),
               // SizedBox(height: 80),
             ],
