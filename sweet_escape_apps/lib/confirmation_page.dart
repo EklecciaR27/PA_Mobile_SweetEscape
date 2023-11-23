@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sweet_escape_apps/history_page.dart';
+import 'package:sweet_escape_apps/home_page.dart';
 
 class Confirmation extends StatelessWidget {
   final String? name;
@@ -96,12 +96,7 @@ class Confirmation extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => History(
-                          name,
-                          numbphone,
-                          radioValue,
-                          selectedDate,
-                          reservations,
+                        builder: (context) => HomePage(
                         ),
                       ),
                     );
