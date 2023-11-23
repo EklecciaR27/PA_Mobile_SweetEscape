@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:sweet_escape_apps/OnBoarding_Screen.dart';
+import 'package:sweet_escape_apps/ProfileScreen.dart';
 import 'package:sweet_escape_apps/firebase_options.dart';
 import 'package:sweet_escape_apps/home_page.dart';
 import 'package:sweet_escape_apps/input_page.dart';
@@ -44,7 +45,11 @@ class MyApp extends StatelessWidget {
           ),
           useMaterial3: true,
         ),
-        home: const OnBoardingScreen()
+        home: const OnBoardingScreen(),
+        routes: {
+        '/halaman1': (context) => const HomePage(),
+        '/halaman2': (context) => const ProfileScreen(),
+      },
         //Reservasi(),
         );
   }
