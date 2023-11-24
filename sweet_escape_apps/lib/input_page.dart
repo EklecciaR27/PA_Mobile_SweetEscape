@@ -24,6 +24,7 @@ class _ReservasiState extends State<Reservasi> {
   bool? check3 = false;
   String? name = '';
   String? numbphone = '';
+  String? selectedLocation = 'Bali';
   DateTime? selectedDate;
   FocusNode nameFocus = FocusNode();
   FocusNode phoneFocus = FocusNode();
@@ -170,6 +171,45 @@ class _ReservasiState extends State<Reservasi> {
               ),
               const SizedBox(height: 40),
               const Text(
+                "Location",
+                style: TextStyle(
+                  color: Color(0xFF35656F),
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: DropdownButton<String>(
+                  value: selectedLocation,
+                  items: <String>['Bali', 'Malang', 'Yogyakarta']
+                      .map((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(
+                        value,
+                        style: TextStyle(
+                          color: Color(0xFF35656F),
+                        ),
+                      ),
+                    );
+                  }).toList(),
+                  onChanged: (String? newValue) {
+                    setState(() {
+                      selectedLocation = newValue!;
+                    });
+                  },
+                  hint: Text(
+                    'Select Location',
+                    style: TextStyle(
+                      color: Color(0xFF66A2AD),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 40),
+              const Text(
                 "Concept",
                 style: TextStyle(
                   color: Color(0xFF35656F),
@@ -287,8 +327,13 @@ class _ReservasiState extends State<Reservasi> {
                   _incrementCounter(reservationProvider);
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => Confirmation(name, numbphone,
-                          radioValue, selectedDate, reservations),
+                      builder: (context) => Confirmation(
+                          name,
+                          numbphone,
+                          radioValue,
+                          selectedDate,
+                          selectedLocation,
+                          reservations),
                     ),
                   );
                 },

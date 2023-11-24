@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:sweet_escape_apps/home_page.dart';
+import 'package:intl/intl.dart';
 
 class Confirmation extends StatelessWidget {
   final String? name;
   final String? numbphone;
   final String? radioValue;
+  final String? selectedLocation;
   final DateTime? selectedDate;
   final List<Map<String, dynamic>> reservations;
 
   Confirmation(this.name, this.numbphone, this.radioValue, this.selectedDate,
-      this.reservations);
+      this.selectedLocation, this.reservations);
 
   @override
   Widget build(BuildContext context) {
@@ -76,6 +78,13 @@ class Confirmation extends StatelessWidget {
                       ),
                     ),
                     Text(
+                      'Location : $selectedLocation',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                      ),
+                    ),
+                    Text(
                       'Concept : $radioValue',
                       style: TextStyle(
                         color: Colors.black,
@@ -83,7 +92,7 @@ class Confirmation extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      'Booking Date : ${selectedDate != null ? selectedDate!.toLocal().toString().split(' ')[0] : 'Belum dipilih'}',
+                      'Booking Date : ${selectedDate != null ? DateFormat('dd - MM - yyyy').format(selectedDate!) : 'Belum dipilih'}',
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 20,
@@ -96,8 +105,7 @@ class Confirmation extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => HomePage(
-                        ),
+                        builder: (context) => HomePage(),
                       ),
                     );
                   },
