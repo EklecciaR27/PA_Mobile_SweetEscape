@@ -28,11 +28,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             controller: _controller,
             onPageChanged: (index) {
               setState(() {
-                onLastpage = (index == 1);
+                onLastpage = (index == 2);
               });
             },
             children: const [
-              //Intro1(),
+              Intro1(),
               Intro2(),
               Intro3(),
             ],

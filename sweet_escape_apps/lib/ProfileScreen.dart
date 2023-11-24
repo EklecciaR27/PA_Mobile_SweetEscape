@@ -3,26 +3,20 @@ import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'ProfileMenuWidget.dart';
 import 'package:get/get.dart';
 
-const String tProfileImage = "https://i0.wp.com/studiolorier.com/wp-content/uploads/2018/10/Profile-Round-Sander-Lorier.jpg";
+import 'widgets/bottomNav.dart';
+
+const String tProfileImage =
+    "https://i0.wp.com/studiolorier.com/wp-content/uploads/2018/10/Profile-Round-Sander-Lorier.jpg";
 const String tProfile = "Profile";
 const String tEditProfile = "edit profile";
 const String tProfileHeading = "Zoro Xander";
 const String tProfileSubHeading = "ZoroXander123@gmail.com";
 
-// const String tmenu1 = "menu1";
-// const String tmenu2 = "menu2";
-// const String tmenu3 = "menu3";
-// const String tmenu4 = "menu4";
-// const String tmenu5 = "menu5";
-
-// const String tDelete = "Delete";
-// const String tJoin = "12-11-2003";
-// const String tJoined = "11-12-2004";
-// const String tJoinedAt = "10-10-2023";
 const double tDefaultSize = 16.0;
 const Color tPrimaryColor = Colors.blue;
 const Color tDarkColor = Colors.black;
 const Color tAccentColor = Colors.amberAccent;
+int currentIndex = 2;
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -30,9 +24,6 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(tProfile, style: Theme.of(context).textTheme.headline4),
-      ),
       body: SingleChildScrollView(
         child: Container(
           // color: Color.fromARGB(#66a2ad),
@@ -103,6 +94,9 @@ class ProfileScreen extends StatelessWidget {
             ],
           ),
         ),
+      ),
+      bottomNavigationBar: BottomNavScreen(
+        currentIndex: currentIndex,
       ),
     );
   }

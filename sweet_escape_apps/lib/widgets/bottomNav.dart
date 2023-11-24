@@ -28,12 +28,10 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
           context, MaterialPageRoute(builder: (context) => const HomePage()));
     }
     if (index == 1) {
-      // Periksa apakah indeks yang dipilih adalah 1 (input Review)
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => Reservasi()));
     }
     if (index == 2) {
-      // Periksa apakah indeks yang dipilih adalah 1 (output Review)
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => const ProfileScreen()));
     }

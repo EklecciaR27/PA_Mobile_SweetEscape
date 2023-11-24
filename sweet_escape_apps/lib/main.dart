@@ -37,20 +37,16 @@ class MyApp extends StatelessWidget {
     CollectionReference dataReservasi =
         firestore.collection("data_reservasi"); //buat tabel
     return MaterialApp(
-        title: 'Flutter Demo',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(
-            seedColor: Color(0xFF66A2AD),
-          ),
-          useMaterial3: true,
+      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Color(0xFF66A2AD),
         ),
-        home: const OnBoardingScreen(),
-        routes: {
-        '/halaman1': (context) => const HomePage(),
-        '/halaman2': (context) => const ProfileScreen(),
-      },
-        //Reservasi(),
-        );
+        useMaterial3: true,
+      ),
+      home: OnBoardingScreen(),
+      //Reservasi(),
+    );
   }
 }
