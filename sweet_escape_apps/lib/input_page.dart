@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sweet_escape_apps/history_page.dart';
 import 'package:sweet_escape_apps/models/reservation_provider.dart';
 import 'package:sweet_escape_apps/models/reservation.dart';
 import 'package:sweet_escape_apps/signIn.dart';
@@ -360,8 +361,7 @@ class _ReservasiState extends State<Reservasi> {
                 ),
               ),
             ),
-            Confirmation(name, numbphone, radioValue, selectedDate,
-                selectedLocation, reservations)
+            History(name, numbphone, radioValue, selectedDate, reservations)
           ]),
           bottomNavigationBar: BottomNavScreen(
             currentIndex: currentIndex,
