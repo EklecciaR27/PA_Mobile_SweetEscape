@@ -139,9 +139,9 @@ class DetailPageJogja extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) =>
-                                  Reservasi(imagePath: "images/jogja.jpg"),
-                              ),
-                            );
+                                  Reservasi(),
+                            )
+                         );
                       }, child: Text("BOOK NOW"))
                     ],
                   ),

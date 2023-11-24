@@ -140,9 +140,9 @@ class DetailPageMalang extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) =>
-                                  Reservasi(imagePath: "images/malang.jpg"),
-                              ),
-                            );
+                                  Reservasi(),
+                            )
+                         );
                           },
                           child: Text("BOOK NOW"))
                     ],

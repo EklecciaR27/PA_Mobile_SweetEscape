@@ -8,10 +8,6 @@ import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class Reservasi extends StatefulWidget {
-  //image path dari page yang ingin di reservasi
-  final String imagePath;
-
-  Reservasi({required this.imagePath});
 
   @override
   _ReservasiState createState() => _ReservasiState();
@@ -53,6 +49,7 @@ class _ReservasiState extends State<Reservasi> {
       final newReservation = Reservation(
         name: name!,
         numbphone: numbphone!,
+        location: selectedLocation!,
         radioValue: radioValue,
         selectedDate: selectedDate!,
         email: userEmail,
@@ -93,7 +90,7 @@ class _ReservasiState extends State<Reservasi> {
                 height: 150,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage(widget.imagePath),
+                    image: AssetImage("assets/bali.jpg"),
                     fit: BoxFit.fill,
                   ),
                 ),

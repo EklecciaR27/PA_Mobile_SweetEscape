@@ -139,9 +139,9 @@ class DetailPageBali extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) =>
-                                  Reservasi(imagePath: "images/bali.jpg"),
-                              ),
-                            );
+                                  Reservasi(),
+                            )
+                         );
                       }, child: const Text("BOOK NOW"))
                     ],
                   ),
