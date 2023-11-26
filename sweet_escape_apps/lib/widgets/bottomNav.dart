@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sweet_escape_apps/ProfileScreen.dart';
 import 'package:sweet_escape_apps/home_page.dart';
 import 'package:sweet_escape_apps/input_page.dart';
+import 'package:sweet_escape_apps/myreservation.dart';
 
 class BottomNavScreen extends StatefulWidget {
   final int currentIndex;
@@ -35,11 +36,11 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => const ProfileScreen()));
     }
-    //  if (index == 3) {
-    //   // Periksa apakah indeks yang dipilih adalah 1 (output Review)
-    //   Navigator.push(
-    //       context, MaterialPageRoute(builder: (context) => SettingPage()));
-    // }
+     if (index == 3) {
+      // Periksa apakah indeks yang dipilih adalah 1 (output Review)
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => MyReservation()));
+    }
   }
 
 //isi konten bottom navigasi
