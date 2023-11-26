@@ -2,102 +2,238 @@ import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'ProfileMenuWidget.dart';
 import 'package:get/get.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'widgets/bottomNav.dart';
-
-const String tProfileImage =
-    "https://i0.wp.com/studiolorier.com/wp-content/uploads/2018/10/Profile-Round-Sander-Lorier.jpg";
-const String tProfile = "Profile";
-const String tEditProfile = "edit profile";
-const String tProfileHeading = "Zoro Xander";
-const String tProfileSubHeading = "ZoroXander123@gmail.com";
-
-const double tDefaultSize = 16.0;
-const Color tPrimaryColor = Colors.blue;
-const Color tDarkColor = Colors.black;
-const Color tAccentColor = Colors.amberAccent;
-int currentIndex = 2;
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    User? user = FirebaseAuth.instance.currentUser;
+
+    var lebar = MediaQuery.of(context).size.width;
+    var tinggi = MediaQuery.of(context).size.height;
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          // color: Color.fromARGB(#66a2ad),
-          color: Color.fromRGBO(102, 162, 173, 173),
-          padding: const EdgeInsets.all(tDefaultSize),
-          child: Column(
-            children: [
-              /// -- IMAGE
-              Stack(
-                children: [
-                  SizedBox(
-                    width: 120,
-                    height: 120,
-                    child: ClipRRect(
-                        borderRadius: BorderRadius.circular(100),
-                        child: const Image(image: AssetImage(tProfileImage))),
+        appBar: AppBar(),
+        body: Container(
+            decoration: BoxDecoration(
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? const Color.fromARGB(
+                      255, 21, 21, 21) // Warna latar belakang untuk mode gelap
+                  : const Color.fromARGB(255, 255, 255, 255),
+              // Warna latar belakang untuk mode terang
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            child: ListView(children: [
+              //BAGIAN UNTUK FOTO PROFIL
+              Center(
+                  child: ClipOval(
+                child: Container(
+                  width: 200,
+                  height: 200,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage('images/bali.jpg'),
+                    ),
                   ),
-                  Positioned(
-                    bottom: 0,
-                    right: 0,
-                    child: Container(
-                      width: 35,
-                      height: 35,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(100),
-                          color: tPrimaryColor),
-                      child: const Icon(
-                        LineAwesomeIcons.alternate_pencil,
-                        color: Colors.black,
-                        size: 20,
+                ),
+              )),
+
+              // INFORMASI BERISI NAMA,NIM DAN KELAS.
+              Stack(children: [
+                // Container 1 (yang di belakang)
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    margin: EdgeInsets.fromLTRB(0, tinggi * 0.10, 0, 0),
+                    padding: EdgeInsets.fromLTRB(22, tinggi * 0.1, 22, 300),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF66A2AD),
+                      // Warna latar belakang untuk mode terang
+                      borderRadius: BorderRadius.circular(10.0),
+
+                      border: Border.all(
+                        color: Colors.black, // Warna border
+                        width: 2.0, // Lebar border
                       ),
                     ),
                   ),
-                ],
-              ),
-              const SizedBox(height: 10),
-              Text(tProfileHeading,
-                  style: Theme.of(context).textTheme.headline4),
-              Text(tProfileSubHeading,
-                  style: Theme.of(context).textTheme.bodyText2),
-              const SizedBox(height: 20),
+                ),
 
-              /// -- BUTTON
-              SizedBox(
-                width: 200,
-              ),
-              const SizedBox(height: 30),
-              const Divider(),
-              const SizedBox(height: 10),
-
-              /// -- MENU
-              ProfileMenuWidget(
-                  title: "Settings",
-                  icon: LineAwesomeIcons.cog,
-                  onPress: () {}),
-              ProfileMenuWidget(
-                  title: "Information",
-                  icon: LineAwesomeIcons.info,
-                  onPress: () {}),
-              const Divider(),
-              const SizedBox(height: 10),
-              ProfileMenuWidget(
-                  title: "Logout",
-                  icon: LineAwesomeIcons.alternate_sign_out,
-                  textColor: Colors.red,
-                  endIcon: false,
-                  onPress: () {}),
-            ],
-          ),
-        ),
-      ),
-      bottomNavigationBar: BottomNavScreen(
-        currentIndex: currentIndex,
-      ),
-    );
+                // Container 2 (yang ditumpuk di atas Container 1)
+                Positioned(
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  child: Container(
+                    margin: EdgeInsets.all(lebar * 0.05),
+                    decoration: BoxDecoration(
+                      color: const Color.fromRGBO(241, 180, 187,
+                          1), // Warna latar belakang untuk mode terang
+                      borderRadius: BorderRadius.circular(10.0),
+                      border: Border.all(
+                        color: Colors.black, // Warna border
+                        width: 2.0, // Lebar border
+                      ),
+                    ),
+                    child: Column(
+                      children: [
+                        const Text(
+                          "Agditha Evalyn Lolongan",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'AutofillHints.creditCardFamilyName',
+                            color: Color.fromRGBO(19, 32, 67, 1),
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                        const SizedBox(height: 10),
+                        Text(
+                          "${user?.email}",
+                          style: const TextStyle(
+                            fontSize: 15,
+                            fontFamily: 'AutofillHints.countryCode',
+                            color: Color.fromRGBO(19, 32, 67, 1),
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                        const SizedBox(height: 10),
+                        const Text(
+                          "Informatika A'2021",
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontFamily: 'AutofillHints.countryCode',
+                            color: Color.fromRGBO(19, 32, 67, 1),
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                //informasi dataa pribadi lainnya
+                Positioned(
+                  top: 130,
+                  left: 0,
+                  right: 0,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(children: [
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(lebar * 0.1, 0, 0, 0),
+                          child: const Icon(
+                            Icons.favorite,
+                            color: Color.fromRGBO(19, 32, 67, 1),
+                          ),
+                        ),
+                        SizedBox(width: lebar * 0.05),
+                        Text(
+                          "CARIIN",
+                          style: TextStyle(
+                            fontSize: lebar * 0.05,
+                            color: const Color.fromRGBO(19, 32, 67, 1),
+                          ),
+                        ),
+                      ]),
+                      const SizedBox(height: 20),
+                      Row(children: [
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(lebar * 0.1, 0, 0, 0),
+                          child: const Icon(
+                            Icons.email,
+                            color: Color.fromRGBO(19, 32, 67, 1),
+                          ),
+                        ),
+                        SizedBox(width: lebar * 0.05),
+                        Text(
+                          "ditaevalin28@gmail.com",
+                          style: TextStyle(
+                            fontSize: lebar * 0.05,
+                            color: const Color.fromRGBO(19, 32, 67, 1),
+                          ),
+                        ),
+                      ]),
+                      const SizedBox(height: 20),
+                      Row(children: [
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(lebar * 0.1, 0, 0, 0),
+                          child: const Icon(
+                            Icons.school,
+                            color: Color.fromRGBO(19, 32, 67, 1),
+                          ),
+                        ),
+                        SizedBox(width: lebar * 0.05),
+                        Text(
+                          "UNIVERSITAS MULAWARMAN",
+                          style: TextStyle(
+                            fontSize: lebar * 0.05,
+                            color: const Color.fromRGBO(19, 32, 67, 1),
+                          ),
+                        ),
+                      ]),
+                      const SizedBox(height: 20),
+                      Row(children: [
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(lebar * 0.1, 0, 0, 0),
+                          child: const Icon(
+                            Icons.work,
+                            color: Color.fromRGBO(19, 32, 67, 1),
+                          ),
+                        ),
+                        SizedBox(width: lebar * 0.05),
+                        Text(
+                          "CALON PENGODING HANDAL",
+                          style: TextStyle(
+                            fontSize: lebar * 0.05,
+                            color: const Color.fromRGBO(19, 32, 67, 1),
+                          ),
+                        ),
+                      ]),
+                    ],
+                  ),
+                )
+              ]),
+            ])),
+        bottomNavigationBar: BottomNavScreen(
+          currentIndex: 2,
+        ));
   }
 }
+
+// //UNTUK ATUR ANIMASI FOTO
+// class fotoku extends StatelessWidget {
+//   double _size = 230;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return GestureDetector(
+//       onTap: () {
+//         _size = _size == 100 ? 80 : 130;
+//       },
+//       child: TweenAnimationBuilder<double>(
+//         tween: Tween<double>(begin: _size == 80 ? 180 : 130, end: _size),
+//         duration: const Duration(seconds: 1),
+//         curve: Curves.easeInOut,
+//         builder: (context, value, child) {
+//           return ClipOval(
+//             child: Container(
+//               width: value,
+//               height: value,
+//               decoration: const BoxDecoration(
+//                 image: DecorationImage(
+//                   fit: BoxFit.cover,
+//                   image: AssetImage('images/bali.jpg'),
+//                 ),
+//               ),
+//             ),
+//           );
+//         },
+//       ),
+//     );
+//   }
+// }

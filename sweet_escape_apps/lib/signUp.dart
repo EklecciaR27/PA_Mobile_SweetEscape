@@ -17,7 +17,6 @@ class _RegisState extends State<Regis> {
   final _formKey = GlobalKey<FormState>();
 
   final TextEditingController _ctrlEmail = TextEditingController();
-
   final TextEditingController _ctrlPassword = TextEditingController();
 
   handleSubmit() async {
