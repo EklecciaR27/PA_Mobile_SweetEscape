@@ -41,6 +41,7 @@ class ReservationProvider extends ChangeNotifier {
             userReservation.add(reservation);
           });
         }
+         print('User Reservations: $userReservation'); 
       } catch (e) {
         print('Error fetching reservations: $e');
       }
@@ -48,4 +49,32 @@ class ReservationProvider extends ChangeNotifier {
 
     return userReservation;
   }
+
+
+   Future<List<Reservation>> getAllReservations() async {
+    List<Reservation> allReservations = [];
+
+    try {
+      QuerySnapshot snapshot = await _reservationsCollection.get();
+
+      if (snapshot.docs.isNotEmpty) {
+        snapshot.docs.forEach((document) {
+          Reservation reservation = Reservation(
+            name: document['name'],
+            numbphone: document['numbphone'],
+            location: document['location'],
+            radioValue: document['radioValue'],
+            email: document['email'],
+            selectedDate: (document['selectedDate'] as Timestamp).toDate(),
+          );
+          allReservations.add(reservation);
+        });
+      }
+    } catch (e) {
+      print('Error fetching all reservations: $e');
+    }
+
+    return allReservations;
+  }
+  
 }

@@ -14,21 +14,55 @@ class MyReservation extends StatelessWidget {
       future: reservationProvider.getReservation(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return CircularProgressIndicator();
+          return Center(child: CircularProgressIndicator());
         } else if (snapshot.hasError) {
-          return Text('Error: ${snapshot.error}');
+          return Center(child: Text('Error: ${snapshot.error}'));
         } else {
           final userReservations = snapshot.data ?? [];
-          // Gunakan data userReservations untuk menampilkan reservasi pengguna
-          // Misalnya, tampilkan dalam ListView atau GridView
-          return ListView.builder(
-            itemCount: userReservations.length,
-            itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(userReservations[index].name),
-                // Tampilkan data reservasi lainnya sesuai kebutuhan
-              );
-            },
+
+          return Container(
+            padding: EdgeInsets.all(16.0),
+            child: ListView.builder(
+              itemCount: userReservations.length,
+              itemBuilder: (context, index) {
+                return Card(
+                  elevation: 3,
+                  margin: EdgeInsets.symmetric(vertical: 8.0),
+                  child: Padding(
+                    padding: EdgeInsets.all(12.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Name: ${userReservations[index].name}',
+                          style: TextStyle(color: Colors.black),
+                        ),
+                        Text(
+                          'Phone Number: ${userReservations[index].numbphone}',
+                          style: TextStyle(color: Colors.black),
+                        ),
+                        Text(
+                          'Location: ${userReservations[index].location}',
+                          style: TextStyle(color: Colors.black),
+                        ),
+                        Text(
+                          'Concept: ${userReservations[index].radioValue}',
+                          style: TextStyle(color: Colors.black),
+                        ),
+                        Text(
+                          'Email: ${userReservations[index].email}',
+                          style: TextStyle(color: Colors.black),
+                        ),
+                        Text(
+                          'Date: ${userReservations[index].selectedDate.toString()}',
+                          style: TextStyle(color: Colors.black),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            ),
           );
         }
       },
