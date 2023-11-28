@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: const ProfileScreen(),
+      home: const OnBoardingScreen(),
       //Reservasi(),
     );
   }
