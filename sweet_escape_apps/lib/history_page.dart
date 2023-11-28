@@ -13,6 +13,9 @@ class History extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
+    
+
     var lebar = MediaQuery.of(context).size.width;
     var tinggi = MediaQuery.of(context).size.height;
     return Scaffold(

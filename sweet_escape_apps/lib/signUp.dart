@@ -13,19 +13,25 @@ class Regis extends StatefulWidget {
 
 class _RegisState extends State<Regis> {
   bool _loading = false;
-
   final _formKey = GlobalKey<FormState>();
-
   final TextEditingController _ctrlEmail = TextEditingController();
   final TextEditingController _ctrlPassword = TextEditingController();
+  final TextEditingController _ctrlUsername = TextEditingController();
 
   handleSubmit() async {
     if (!_formKey.currentState!.validate()) return;
     final email = _ctrlEmail.value.text;
     final password = _ctrlPassword.value.text;
-    setState(() => _loading = true);
-    await Auth().regis(email, password);
-    setState(() => _loading = false);
+    final username = _ctrlUsername.value.text;
+
+    try {
+      setState(() => _loading = true);
+      await Auth().regis(email, password, username);
+    } catch (e) {
+      print('Kesalahan selama registrasi: $e');
+    } finally {
+      setState(() => _loading = false);
+    }
   }
 
   @override
@@ -62,6 +68,21 @@ class _RegisState extends State<Regis> {
                         ),
                       ),
                       SizedBox(height: 50),
+                      TextFormField(
+                        controller: _ctrlUsername,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Silakan Masukkan Username Anda';
+                          }
+                          return null;
+                        },
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(40.0)),
+                          hintText: 'Email',
+                        ),
+                      ),
+                      SizedBox(height: 10),
                       TextFormField(
                         controller: _ctrlEmail,
                         validator: (value) {

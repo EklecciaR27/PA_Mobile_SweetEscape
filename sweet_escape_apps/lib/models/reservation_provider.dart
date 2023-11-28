@@ -16,13 +16,11 @@ class ReservationProvider extends ChangeNotifier {
     }
   }
 
-   Future<List<Reservation>> getReservation() async {
+  Future<List<Reservation>> getReservation() async {
     List<Reservation> userReservation = [];
-
     User? user = FirebaseAuth.instance.currentUser;
     if (user != null) {
       String userEmail = user.email ?? '';
-
       try {
         QuerySnapshot snapshot = await _reservationsCollection
             .where('email', isEqualTo: userEmail)
@@ -41,7 +39,7 @@ class ReservationProvider extends ChangeNotifier {
             userReservation.add(reservation);
           });
         }
-         print('User Reservations: $userReservation'); 
+        print('User Reservations: $userReservation');
       } catch (e) {
         print('Error fetching reservations: $e');
       }
@@ -50,8 +48,7 @@ class ReservationProvider extends ChangeNotifier {
     return userReservation;
   }
 
-
-   Future<List<Reservation>> getAllReservations() async {
+  Future<List<Reservation>> getAllReservations() async {
     List<Reservation> allReservations = [];
 
     try {
@@ -76,5 +73,41 @@ class ReservationProvider extends ChangeNotifier {
 
     return allReservations;
   }
-  
+
+
+
+  // baru
+  Future<List<Reservation>> getReservationsUser() async {
+    User? user = FirebaseAuth.instance.currentUser;
+
+    if (user != null) {
+      String userEmail = user.email ?? '';
+      
+      try {
+        QuerySnapshot querySnapshot = await _reservationsCollection
+            .where('email', isEqualTo: userEmail)
+            .get();
+
+        List<Reservation> reservations = querySnapshot.docs.map((doc) {
+          Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
+
+          return Reservation(
+            name: data['name'],
+            numbphone: data['numbphone'],
+            location: data['location'],
+            radioValue: data['radioValue'],
+            email: data['email'],
+            selectedDate: data['selectedDate'].toDate(),
+          );
+        }).toList();
+
+        return reservations;
+      } catch (e) {
+        print('Error getting reservations: $e');
+        return [];
+      }
+    } else {
+      return [];
+    }
+  }
 }

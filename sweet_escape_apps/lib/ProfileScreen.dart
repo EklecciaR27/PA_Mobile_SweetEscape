@@ -4,10 +4,32 @@ import 'ProfileMenuWidget.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+import 'authentication.dart';
+import 'home_page.dart';
 import 'widgets/bottomNav.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
+
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  String? username;
+
+  @override
+  void initState() {
+    super.initState();
+    loadProfileInfo();
+  }
+
+  Future<void> loadProfileInfo() async {
+    final user = await Auth().getCurrentUser();
+    setState(() {
+      username = user?.displayName;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +63,7 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 ),
               )),
+              const SizedBox(height: 100),
 
               // INFORMASI BERISI NAMA,NIM DAN KELAS.
               Stack(children: [
@@ -51,7 +74,7 @@ class ProfileScreen extends StatelessWidget {
                     margin: EdgeInsets.fromLTRB(0, tinggi * 0.10, 0, 0),
                     padding: EdgeInsets.fromLTRB(22, tinggi * 0.1, 22, 300),
                     decoration: BoxDecoration(
-                      color: const Color(0xFF66A2AD),
+                      color: const Color.fromARGB(255, 138, 183, 186),
                       // Warna latar belakang untuk mode terang
                       borderRadius: BorderRadius.circular(10.0),
 
@@ -71,8 +94,8 @@ class ProfileScreen extends StatelessWidget {
                   child: Container(
                     margin: EdgeInsets.all(lebar * 0.05),
                     decoration: BoxDecoration(
-                      color: const Color.fromRGBO(241, 180, 187,
-                          1), // Warna latar belakang untuk mode terang
+                      color: Color.fromARGB(255, 255, 255,
+                          255), // Warna latar belakang untuk mode terang
                       borderRadius: BorderRadius.circular(10.0),
                       border: Border.all(
                         color: Colors.black, // Warna border
@@ -81,8 +104,8 @@ class ProfileScreen extends StatelessWidget {
                     ),
                     child: Column(
                       children: [
-                        const Text(
-                          "Agditha Evalyn Lolongan",
+                        Text(
+                          "$username",
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
@@ -123,77 +146,30 @@ class ProfileScreen extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Row(children: [
-                        Padding(
-                          padding: EdgeInsets.fromLTRB(lebar * 0.1, 0, 0, 0),
-                          child: const Icon(
-                            Icons.favorite,
-                            color: Color.fromRGBO(19, 32, 67, 1),
-                          ),
-                        ),
-                        SizedBox(width: lebar * 0.05),
-                        Text(
-                          "CARIIN",
-                          style: TextStyle(
-                            fontSize: lebar * 0.05,
-                            color: const Color.fromRGBO(19, 32, 67, 1),
-                          ),
-                        ),
-                      ]),
-                      const SizedBox(height: 20),
-                      Row(children: [
-                        Padding(
-                          padding: EdgeInsets.fromLTRB(lebar * 0.1, 0, 0, 0),
-                          child: const Icon(
-                            Icons.email,
-                            color: Color.fromRGBO(19, 32, 67, 1),
-                          ),
-                        ),
-                        SizedBox(width: lebar * 0.05),
-                        Text(
-                          "ditaevalin28@gmail.com",
-                          style: TextStyle(
-                            fontSize: lebar * 0.05,
-                            color: const Color.fromRGBO(19, 32, 67, 1),
-                          ),
-                        ),
-                      ]),
-                      const SizedBox(height: 20),
-                      Row(children: [
-                        Padding(
-                          padding: EdgeInsets.fromLTRB(lebar * 0.1, 0, 0, 0),
-                          child: const Icon(
-                            Icons.school,
-                            color: Color.fromRGBO(19, 32, 67, 1),
-                          ),
-                        ),
-                        SizedBox(width: lebar * 0.05),
-                        Text(
-                          "UNIVERSITAS MULAWARMAN",
-                          style: TextStyle(
-                            fontSize: lebar * 0.05,
-                            color: const Color.fromRGBO(19, 32, 67, 1),
-                          ),
-                        ),
-                      ]),
-                      const SizedBox(height: 20),
-                      Row(children: [
-                        Padding(
-                          padding: EdgeInsets.fromLTRB(lebar * 0.1, 0, 0, 0),
-                          child: const Icon(
-                            Icons.work,
-                            color: Color.fromRGBO(19, 32, 67, 1),
-                          ),
-                        ),
-                        SizedBox(width: lebar * 0.05),
-                        Text(
-                          "CALON PENGODING HANDAL",
-                          style: TextStyle(
-                            fontSize: lebar * 0.05,
-                            color: const Color.fromRGBO(19, 32, 67, 1),
-                          ),
-                        ),
-                      ]),
+                      /// -- MENU
+                      ProfileMenuWidget(
+                          title: "Settings",
+                          icon: LineAwesomeIcons.cog,
+                          onPress: () {}),
+                      const Divider(),
+                      const SizedBox(height: 10),
+                      ProfileMenuWidget(
+                          title: "Information",
+                          icon: LineAwesomeIcons.info,
+                          onPress: () {}),
+                      const Divider(),
+                      const SizedBox(height: 10),
+                      ProfileMenuWidget(
+                          title: "Logout",
+                          icon: LineAwesomeIcons.alternate_sign_out,
+                          textColor: Colors.red,
+                          endIcon: false,
+                          onPress: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const HomePage()));
+                          }),
                     ],
                   ),
                 )

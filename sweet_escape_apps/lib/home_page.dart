@@ -1,9 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sweet_escape_apps/detailpage_bali.dart';
 import 'package:sweet_escape_apps/detailpage_jogja.dart';
 import 'package:sweet_escape_apps/detailpage_malang.dart';
 import 'package:sweet_escape_apps/widgets/bottomNav.dart';
+
+import 'authentication.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -14,9 +17,24 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int currentIndex = 0;
+  String? username;
+
+  @override
+  void initState() {
+    super.initState();
+    loadProfileInfo();
+  }
+
+  Future<void> loadProfileInfo() async {
+    final user = await Auth().getCurrentUser();
+    setState(() {
+      username = user?.displayName;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    User? user = FirebaseAuth.instance.currentUser;
     var lebar = MediaQuery.of(context).size.width;
     var tinggi = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -62,7 +80,7 @@ class _HomePageState extends State<HomePage> {
                                   width: 10,
                                 ),
                                 Text(
-                                  "Hi, Zoro Xander. Welcome!",
+                                  "Hi, $username. Welcome!",
                                   style: GoogleFonts.montserrat(
                                       color: Colors.white, fontSize: 20),
                                 )
