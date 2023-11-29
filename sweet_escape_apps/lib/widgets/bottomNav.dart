@@ -63,7 +63,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
               color: Color.fromARGB(255, 102, 162, 173)),
           // activeIcon: Icon(Icons.home,
           // color:Color.fromRGBO(123, 120, 255, 1.0) ,),
-          label: "book",
+          label: "Book",
         ),
         BottomNavigationBarItem(
           icon: Icon(
