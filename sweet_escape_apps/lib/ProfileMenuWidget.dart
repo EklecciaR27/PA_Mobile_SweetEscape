@@ -22,6 +22,8 @@ class ProfileMenuWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var lebar = MediaQuery.of(context).size.width;
+    var tinggi = MediaQuery.of(context).size.height;
     const Color tPrimaryColor = Colors.blue;
     const Color tDarkColor = Colors.black;
     const Color tAccentColor = Color.fromARGB(255, 241, 213, 189);
@@ -31,14 +33,17 @@ class ProfileMenuWidget extends StatelessWidget {
 
     return ListTile(
       onTap: onPress,
-      leading: Container(
-        width: 40,
-        height: 40,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(200),
-          color: iconColor.withOpacity(0.5),
+      leading: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Container(
+          width: lebar * 0.1,
+          height: tinggi * 0.1,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(100),
+            color: iconColor.withOpacity(0.5),
+          ),
+          child: Icon(icon, color: Color.fromARGB(255, 53, 101, 111)),
         ),
-        child: Icon(icon, color: Color.fromARGB(255, 53, 101, 111)),
       ),
       title: Text(
         title,

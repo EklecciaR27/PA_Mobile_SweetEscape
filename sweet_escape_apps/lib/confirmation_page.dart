@@ -18,10 +18,10 @@ class Confirmation extends StatelessWidget {
     var lebar = MediaQuery.of(context).size.width;
     var tinggi = MediaQuery.of(context).size.height;
     return Scaffold(
-      // appBar: AppBar(
-      //   backgroundColor: Color.fromRGBO(216, 188, 252, 1),
-      //   title: Text('Reservasi Zaa Make Up'),
-      // ),
+      appBar: AppBar(
+        backgroundColor: const Color(0xFF66A2AD),
+        title: const Text('Confirmation Page'),
+      ),
       body: SingleChildScrollView(
         child: Container(
           width: lebar,
@@ -32,29 +32,29 @@ class Confirmation extends StatelessWidget {
               children: <Widget>[
                 Container(
                   height: 150,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage("images/bali.jpg"),
+                      image: AssetImage("images/logo2.png"),
                       fit: BoxFit.fill,
                     ),
                   ),
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 Container(
                   height: 90,
                   width: 90,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage("images/check.png"),
                       fit: BoxFit.fill,
                     ),
                   ),
                 ),
-                SizedBox(height: 40),
+                const SizedBox(height: 40),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       'Booking Confirmed',
                       style: TextStyle(
                         color: Color(0xFF35656F),
@@ -62,61 +62,61 @@ class Confirmation extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 30),
+                    const SizedBox(height: 30),
                     Text(
                       'Full Name : $name',
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.black,
                         fontSize: 20,
                       ),
                     ),
                     Text(
                       'Number Phone : $numbphone',
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.black,
                         fontSize: 20,
                       ),
                     ),
                     Text(
                       'Location : $selectedLocation',
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.black,
                         fontSize: 20,
                       ),
                     ),
                     Text(
                       'Concept : $radioValue',
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.black,
                         fontSize: 20,
                       ),
                     ),
                     Text(
                       'Booking Date : ${selectedDate != null ? DateFormat('dd - MM - yyyy').format(selectedDate!) : 'Belum dipilih'}',
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.black,
                         fontSize: 20,
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: 50),
+                const SizedBox(height: 50),
                 ElevatedButton(
                   onPressed: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => HomePage(),
+                        builder: (context) => const HomePage(),
                       ),
                     );
                   },
                   style: ButtonStyle(
                     backgroundColor:
-                        MaterialStateProperty.all(Color(0xFF8AB7BA)),
+                        MaterialStateProperty.all(const Color(0xFF8AB7BA)),
                     foregroundColor:
-                        MaterialStateProperty.all(Color(0xFF35656F)),
-                    fixedSize: MaterialStateProperty.all(Size(100.0, 50.0)),
+                        MaterialStateProperty.all(const Color(0xFF35656F)),
+                    fixedSize: MaterialStateProperty.all(const Size(100.0, 50.0)),
                   ),
-                  child: Text("OK!"),
+                  child: const Text("OK!"),
                 ),
               ],
             ),

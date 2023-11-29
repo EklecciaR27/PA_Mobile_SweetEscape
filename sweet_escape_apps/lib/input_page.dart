@@ -98,10 +98,10 @@ class _ReservasiState extends State<Reservasi> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
                     Container(
-                      height: 150,
+                      height: 170,
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage("images/bali.jpg"),
+                          image: AssetImage("images/logo2.png"),
                           fit: BoxFit.fill,
                         ),
                       ),

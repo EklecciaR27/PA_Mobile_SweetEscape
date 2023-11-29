@@ -44,13 +44,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () {
-              // Tambahkan fungsi navigasi ke halaman yang diinginkan
               Navigator.of(context).push(
                 MaterialPageRoute(builder: (context) => const HomePage()),
               );
             },
           ),
-          // ... tambahkan properti atau widget lainnya di sini
         ),
         body: Container(
             decoration: BoxDecoration(
@@ -144,9 +142,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   ),
                 ),
+                const SizedBox(height: 20),
                 //informasi dataa pribadi lainnya
                 Positioned(
-                  top: 130,
+                  top: 150,
                   left: 0,
                   right: 0,
                   child: Column(
@@ -154,17 +153,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     children: [
                       /// -- MENU
                       ProfileMenuWidget(
-                          title: "Settings",
-                          icon: LineAwesomeIcons.cog,
+                          title: "Information",
+                          icon: LineAwesomeIcons.info,
                           onPress: () {}),
                       const Divider(
                         indent: 15,
                         endIndent: 15,
                       ),
-                      const SizedBox(height: 10),
                       ProfileMenuWidget(
-                          title: "Information",
-                          icon: LineAwesomeIcons.info,
+                          title: "Help",
+                          icon: LineAwesomeIcons.helping_hands,
                           onPress: () {}),
                       const Divider(
                         indent: 15,
@@ -174,7 +172,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ProfileMenuWidget(
                           title: "Logout",
                           icon: LineAwesomeIcons.alternate_sign_out,
-                          textColor: Colors.red,
                           endIcon: false,
                           onPress: () async {
 // Call the logout method

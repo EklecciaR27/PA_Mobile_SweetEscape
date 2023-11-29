@@ -11,6 +11,8 @@ class MyReservation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var lebar = MediaQuery.of(context).size.width;
+    var tinggi = MediaQuery.of(context).size.height;
     User? user = FirebaseAuth.instance.currentUser;
     if (user != null) {
       return StreamBuilder<QuerySnapshot>(
@@ -24,18 +26,18 @@ class MyReservation extends StatelessWidget {
           }
 
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return CircularProgressIndicator(); // Menampilkan loading jika data masih diambil
+            return const CircularProgressIndicator(); // Menampilkan loading jika data masih diambil
           }
 
           if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
-            return Text(
+            return const Text(
                 'ANDA BELUM MELAKUKAN RESERVASI'); // Tampilkan pesan jika tidak ada data
           }
 
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          return ListView(
+            //crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
+              const Padding(
                 padding: EdgeInsets.only(top: 10, left: 16),
                 child: Text(
                   'My Reservation',
@@ -53,59 +55,85 @@ class MyReservation extends StatelessWidget {
                   var reservation = snapshot.data!.docs[index];
                   return Card(
                     elevation: 10,
-                    color: Color(0xFF8AB7BA),
+                    color: const Color(0xFF8AB7BA),
                     margin: const EdgeInsets.fromLTRB(16.0, 20.0, 16.0, 8.0),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(20.0),
                       child: Padding(
                         padding: const EdgeInsets.all(12.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        child: Row(
                           children: [
-                            Text(
-                              '${reservation['selectedDate'] != null ? DateFormat('dd - MMMM - yyyy').format(reservation['selectedDate'].toDate()) : 'Belum dipilih'}',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 25,
-                                fontWeight: FontWeight.bold,
-                              ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  '${reservation['selectedDate'] != null ? DateFormat('dd - MMMM - yyyy').format(reservation['selectedDate'].toDate()) : 'Belum dipilih'}',
+                                  style: const TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                const SizedBox(height: 10),
+                                Text(
+                                  'Full Name : ${reservation['name']}',
+                                  style: const TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                                Text(
+                                  'Number Phone : ${reservation['numbphone']}',
+                                  style: const TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                                Text(
+                                  'Location : ${reservation['location']}',
+                                  style: const TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                                Text(
+                                  'Concept : ${reservation['radioValue']}',
+                                  style: const TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                                Text(
+                                  'Email : ${reservation['email']}',
+                                  style: const TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                              ],
                             ),
-                            SizedBox(height: 10),
-                            Text(
-                              'Full Name : ${reservation['name']}',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 15,
-                              ),
-                            ),
-                            Text(
-                              'Number Phone : ${reservation['numbphone']}',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 15,
-                              ),
-                            ),
-                            Text(
-                              'Location : ${reservation['location']}',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 15,
-                              ),
-                            ),
-                            Text(
-                              'Concept : ${reservation['radioValue']}',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 15,
-                              ),
-                            ),
-                            Text(
-                              'Email : ${reservation['email']}',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 15,
-                              ),
-                            ),
+                            Column(
+                              //mainAxisAlignment: MainAxisAlignment.end,
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Container(
+                                  width: lebar * 0.2,
+                                  margin: EdgeInsets.fromLTRB(95, 90, 0, 0),
+                                  // padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      // Add your logic for handling the click here
+                                      print("CIAAA DISINI YA TAP NYA");
+                                    },
+                                    child: Icon(
+                                      Icons.delete_forever_outlined,
+                                      color: const Color.fromARGB(
+                                          255, 241, 213, 189),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            )
                           ],
                         ),
                       ),
@@ -118,7 +146,7 @@ class MyReservation extends StatelessWidget {
         },
       );
     } else {
-      return Text('Tidak ada pengguna yang login');
+      return const Text('Tidak ada pengguna yang login');
     }
   }
 }
