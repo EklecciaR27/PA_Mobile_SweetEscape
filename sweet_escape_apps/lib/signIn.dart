@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, must_be_immutable, prefer_final_fields
 
 import 'package:flutter/material.dart';
+import 'package:sweet_escape_apps/home_page.dart';
 
 import 'authentication.dart';
 import 'signUp.dart';
@@ -25,9 +26,34 @@ class _LoginState extends State<Login> {
     if (!_formKey.currentState!.validate()) return;
     final email = _ctrlEmail.value.text;
     final password = _ctrlPassword.value.text;
-    setState(() => _loading = true); // buat loading
-    await Auth().login(email, password);
-    setState(() => _loading = false);
+    setState(() => _loading = true);
+
+    try {
+      await Auth().login(email, password);
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Login successful!'),
+        ),
+      );
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const HomePage()),
+      );
+    } catch (e) {
+      print("Error: $e");
+
+      String errorMessage =
+          "Failed to login. Please check your email and password.";
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(errorMessage),
+        ),
+      );
+    } finally {
+      setState(() => _loading = false);
+    }
   }
 
   @override

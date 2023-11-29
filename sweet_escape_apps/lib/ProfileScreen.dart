@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
+import 'package:sweet_escape_apps/signIn.dart';
 import 'ProfileMenuWidget.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -34,11 +35,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     User? user = FirebaseAuth.instance.currentUser;
-
     var lebar = MediaQuery.of(context).size.width;
     var tinggi = MediaQuery.of(context).size.height;
     return Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          title: Text("PROFILE"),
+          backgroundColor: const Color(0xFF66A2AD),
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              // Tambahkan fungsi navigasi ke halaman yang diinginkan
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => const HomePage()),
+              );
+            },
+          ),
+          // ... tambahkan properti atau widget lainnya di sini
+        ),
         body: Container(
             decoration: BoxDecoration(
               color: Theme.of(context).brightness == Brightness.dark
@@ -50,6 +63,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             child: ListView(children: [
               //BAGIAN UNTUK FOTO PROFIL
+              const SizedBox(height: 40),
               Center(
                   child: ClipOval(
                 child: Container(
@@ -63,16 +77,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
               )),
-              const SizedBox(height: 100),
+              const SizedBox(height: 40),
 
-              // INFORMASI BERISI NAMA,NIM DAN KELAS.
+              // INFORMASI
               Stack(children: [
                 // Container 1 (yang di belakang)
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
-                    margin: EdgeInsets.fromLTRB(0, tinggi * 0.10, 0, 0),
-                    padding: EdgeInsets.fromLTRB(22, tinggi * 0.1, 22, 300),
+                    margin: EdgeInsets.fromLTRB(0, tinggi * 0.09, 0, 0),
+                    padding: EdgeInsets.fromLTRB(40, tinggi * 0.1, 22, 200),
                     decoration: BoxDecoration(
                       color: const Color.fromARGB(255, 138, 183, 186),
                       // Warna latar belakang untuk mode terang
@@ -94,8 +108,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   child: Container(
                     margin: EdgeInsets.all(lebar * 0.05),
                     decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 255, 255,
-                          255), // Warna latar belakang untuk mode terang
+                      color: const Color.fromARGB(255, 241, 213,
+                          189), // Warna latar belakang untuk mode terang
                       borderRadius: BorderRadius.circular(10.0),
                       border: Border.all(
                         color: Colors.black, // Warna border
@@ -104,9 +118,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                     child: Column(
                       children: [
+                        const SizedBox(height: 10),
                         Text(
                           "$username",
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                             fontFamily: 'AutofillHints.creditCardFamilyName',
@@ -118,22 +133,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         Text(
                           "${user?.email}",
                           style: const TextStyle(
-                            fontSize: 15,
+                            fontSize: 20,
                             fontFamily: 'AutofillHints.countryCode',
                             color: Color.fromRGBO(19, 32, 67, 1),
                           ),
                           textAlign: TextAlign.center,
                         ),
                         const SizedBox(height: 10),
-                        const Text(
-                          "Informatika A'2021",
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontFamily: 'AutofillHints.countryCode',
-                            color: Color.fromRGBO(19, 32, 67, 1),
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
                       ],
                     ),
                   ),
@@ -151,24 +157,35 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           title: "Settings",
                           icon: LineAwesomeIcons.cog,
                           onPress: () {}),
-                      const Divider(),
+                      const Divider(
+                        indent: 15,
+                        endIndent: 15,
+                      ),
                       const SizedBox(height: 10),
                       ProfileMenuWidget(
                           title: "Information",
                           icon: LineAwesomeIcons.info,
                           onPress: () {}),
-                      const Divider(),
+                      const Divider(
+                        indent: 15,
+                        endIndent: 15,
+                      ),
                       const SizedBox(height: 10),
                       ProfileMenuWidget(
                           title: "Logout",
                           icon: LineAwesomeIcons.alternate_sign_out,
                           textColor: Colors.red,
                           endIcon: false,
-                          onPress: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => HomePage()));
+                          onPress: () async {
+// Call the logout method
+                            await Auth().logout();
+
+                            // Navigate to the login or home page after logout
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Login()),
+                            );
                           }),
                     ],
                   ),

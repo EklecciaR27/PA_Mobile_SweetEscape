@@ -24,7 +24,7 @@ class ProfileMenuWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     const Color tPrimaryColor = Colors.blue;
     const Color tDarkColor = Colors.black;
-    const Color tAccentColor = Colors.yellowAccent;
+    const Color tAccentColor = Color.fromARGB(255, 241, 213, 189);
 
     var isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
     var iconColor = isDark ? tPrimaryColor : tAccentColor;
@@ -32,17 +32,20 @@ class ProfileMenuWidget extends StatelessWidget {
     return ListTile(
       onTap: onPress,
       leading: Container(
-        width: 70,
-        height: 70,
+        width: 40,
+        height: 40,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(100),
-          color: iconColor.withOpacity(0.1),
+          borderRadius: BorderRadius.circular(200),
+          color: iconColor.withOpacity(0.5),
         ),
-        child: Icon(icon, color: iconColor),
+        child: Icon(icon, color: Color.fromARGB(255, 53, 101, 111)),
       ),
-      title: Text(title,
-          style:
-              Theme.of(context).textTheme.bodyText1?.apply(color: textColor)),
+      title: Text(
+        title,
+        style: const TextStyle(
+          color: Color.fromRGBO(10, 10, 10, 1.0),
+        ),
+      ),
       trailing: endIcon
           ? Container(
               width: 30,
@@ -52,7 +55,7 @@ class ProfileMenuWidget extends StatelessWidget {
                 color: Colors.grey.withOpacity(0.1),
               ),
               child: const Icon(LineAwesomeIcons.angle_right,
-                  size: 18.0, color: Colors.grey))
+                  size: 18.0, color: Color.fromARGB(255, 53, 101, 111)))
           : null,
     );
   }

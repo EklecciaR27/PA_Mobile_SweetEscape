@@ -43,7 +43,7 @@ class _ReservasiState extends State<Reservasi> {
   //reser pro
   void _incrementCounter(ReservationProvider reservationProvider) {
     User? user = FirebaseAuth.instance.currentUser;
- 
+
     if (user != null) {
       // ambil emailnya
       String userEmail = user.email ?? '';
@@ -364,7 +364,6 @@ class _ReservasiState extends State<Reservasi> {
             ),
             //History(name, numbphone, radioValue, selectedDate, reservations)
             MyReservation(),
-          
           ]),
           bottomNavigationBar: BottomNavScreen(
             currentIndex: currentIndex,

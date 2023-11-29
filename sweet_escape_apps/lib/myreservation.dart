@@ -5,8 +5,6 @@ import 'package:sweet_escape_apps/models/reservation.dart';
 import 'package:sweet_escape_apps/models/reservation_provider.dart';
 import 'package:provider/provider.dart';
 
-
-
 class MyReservation extends StatelessWidget {
   const MyReservation({Key? key});
 
@@ -29,7 +27,8 @@ class MyReservation extends StatelessWidget {
           }
 
           if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
-            return Text('Tidak ada data reservasi'); // Tampilkan pesan jika tidak ada data
+            return Text(
+                'ANDA BELUM MELAKUKAN RESERVASI'); // Tampilkan pesan jika tidak ada data
           }
 
           return ListView.builder(
