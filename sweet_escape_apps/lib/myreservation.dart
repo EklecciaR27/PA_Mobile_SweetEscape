@@ -118,12 +118,51 @@ class MyReservation extends StatelessWidget {
                               children: [
                                 Container(
                                   width: lebar * 0.2,
-                                  margin: EdgeInsets.fromLTRB(95, 90, 0, 0),
+                                  margin: EdgeInsets.fromLTRB(30, 0, 0, 0),
                                   // padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
                                   child: GestureDetector(
                                     onTap: () {
                                       // Add your logic for handling the click here
-                                      print("CIAAA DISINI YA TAP NYA");
+                                      if (reservation != null) {
+                                        showDialog(
+                                          context: context,
+                                          builder: (BuildContext context) {
+                                            return AlertDialog(
+                                              title: const Text('Konfirmasi'),
+                                              content: const Text(
+                                                  'Apakah Anda yakin ingin menghapus data ini?'),
+                                              actions: <Widget>[
+                                                TextButton(
+                                                  onPressed: () {
+                                                    Navigator.of(context).pop();
+                                                  },
+                                                  child: const Text('Batal'),
+                                                ),
+                                                TextButton(
+                                                  onPressed: () {
+                                                    // Hapus data di Firestore
+                                                    FirebaseFirestore.instance
+                                                        .collection(
+                                                            'data_reservasi')
+                                                        .doc(reservation.id)
+                                                        .delete()
+                                                        .then((value) =>
+                                                            Navigator.of(
+                                                                    context)
+                                                                .pop())
+                                                        .catchError((error) =>
+                                                            print(
+                                                                "Gagal menghapus data: $error"));
+                                                  },
+                                                  child: const Text('Hapus'),
+                                                ),
+                                              ],
+                                            );
+                                          },
+                                        );
+                                      }
+
+                                      //print("CIAAA DISINI YA TAP NYA");
                                     },
                                     child: Icon(
                                       Icons.delete_forever_outlined,
