@@ -19,15 +19,16 @@ class Intro2 extends StatelessWidget {
               height: 280.0,
             ),
             // ignore: avoid_unnecessary_containers
-            Container(
-              padding: const EdgeInsets.fromLTRB(50, 100, 0, 20),
-              child: Text(
-                "\t \t \t Discover the best photographer \n to make your memories unforgettable",
-                style: GoogleFonts.montserrat(
-                    color: const Color.fromARGB(255, 241, 213, 189),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15),
-              ),
+            Column(
+              children: [
+                Text(
+                  "\t \t  Discover the best photographer \n to make your memories unforgettable",
+                  style: GoogleFonts.montserrat(
+                      color: const Color.fromARGB(255, 241, 213, 189),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15),
+                ),
+              ],
             ),
           ],
         ),

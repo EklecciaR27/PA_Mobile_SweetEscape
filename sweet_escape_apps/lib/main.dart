@@ -37,7 +37,6 @@ class MyApp extends StatelessWidget {
     CollectionReference dataReservasi =
         firestore.collection("data_reservasi"); //buat tabel
     return MaterialApp(
-      title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
@@ -45,7 +44,7 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: const ProfileScreen(),
+      home: const Login(),
       //Reservasi(),
     );
   }

@@ -118,7 +118,7 @@ class DetailPageBali extends StatelessWidget {
               child: Card(
                 color: Colors.amber[100],
                 child: Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -134,15 +134,15 @@ class DetailPageBali extends StatelessWidget {
                           ),
                         ],
                       ),
-                      ElevatedButton(onPressed: () {
-                         Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                  Reservasi(),
-                            )
-                         );
-                      }, child: const Text("BOOK NOW"))
+                      ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Reservasi(),
+                                ));
+                          },
+                          child: const Text("BOOK NOW"))
                     ],
                   ),
                 ),
@@ -172,7 +172,7 @@ class DetailPageBali extends StatelessWidget {
             ),
 
             // deskripsi
-             Padding(
+            Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -186,14 +186,13 @@ class DetailPageBali extends StatelessWidget {
                     height: 10,
                   ),
                   Text(
-                    "Ubud, terletak di tengah-tengah pulau Bali, memancarkan keindahan budaya dan alam yang menakjubkan. Di tengah sawah yang hijau terhampar, Ubud memelukmu dengan pesona riangnya, sementara kuil-kuil kuno dan seni rupa yang berlimpah memberikan sentuhan magis pada setiap sudutnya. Cahaya matahari yang lembut meresapi pohon-pohon hijau di sekitar, menciptakan bayangan yang menawan. Jembatan-jembatan cantik yang melintasi sungai-sungai kecil memberikan latar belakang yang memesona untuk sesi foto yang tak terlupakan. Sentuhan tradisional dan modern bersatu harmonis, menciptakan atmosfer yang mengundang, seolah memberikan ruang bagi kreativitas untuk berkembang. Tak jauh dari Ubud, Kintamani mempersembahkan pemandangan luar biasa dari ketinggian. Gunung Batur dan danau berapi yang anggun menjadi fokus utama, menciptakan pemandangan yang menakjubkan. Cahaya matahari terbit dan terbenam melukis langit dan danau dengan warna-warna magis, menciptakan palet yang sempurna untuk foto yang menakjubkan. Bukit-bukit hijau yang berjejer memeluk danau dan gunung, menciptakan lanskap yang dramatis. Hijaunya hamparan sawah terasering dan keindahan alam yang asri memberikan kontras menakjubkan. Setiap langkahmu di Kintamani akan menghadirkan momen-momen indah yang sayang untuk dilewatkan, dan kamera akan menjadi sahabat setia untuk merangkai kisah visual yang tak terlupakan.",
+                      "Ubud, terletak di tengah-tengah pulau Bali, memancarkan keindahan budaya dan alam yang menakjubkan. Di tengah sawah yang hijau terhampar, Ubud memelukmu dengan pesona riangnya, sementara kuil-kuil kuno dan seni rupa yang berlimpah memberikan sentuhan magis pada setiap sudutnya. Cahaya matahari yang lembut meresapi pohon-pohon hijau di sekitar, menciptakan bayangan yang menawan. Jembatan-jembatan cantik yang melintasi sungai-sungai kecil memberikan latar belakang yang memesona untuk sesi foto yang tak terlupakan. Sentuhan tradisional dan modern bersatu harmonis, menciptakan atmosfer yang mengundang, seolah memberikan ruang bagi kreativitas untuk berkembang. Tak jauh dari Ubud, Kintamani mempersembahkan pemandangan luar biasa dari ketinggian. Gunung Batur dan danau berapi yang anggun menjadi fokus utama, menciptakan pemandangan yang menakjubkan. Cahaya matahari terbit dan terbenam melukis langit dan danau dengan warna-warna magis, menciptakan palet yang sempurna untuk foto yang menakjubkan. Bukit-bukit hijau yang berjejer memeluk danau dan gunung, menciptakan lanskap yang dramatis. Hijaunya hamparan sawah terasering dan keindahan alam yang asri memberikan kontras menakjubkan. Setiap langkahmu di Kintamani akan menghadirkan momen-momen indah yang sayang untuk dilewatkan, dan kamera akan menjadi sahabat setia untuk merangkai kisah visual yang tak terlupakan.",
                       style: GoogleFonts.montserrat(
                         fontSize: 14,
                       ))
                 ],
               ),
             ),
-
 
             // ulasan
             Padding(
@@ -261,4 +260,3 @@ class Comment extends StatelessWidget {
     );
   }
 }
-

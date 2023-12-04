@@ -105,7 +105,7 @@ class _HomePageState extends State<HomePage> {
                               cursorHeight: 20,
                               autofocus: false,
                               decoration: InputDecoration(
-                                  hintText: "Cari Cafe & Resto Favoritemu !!",
+                                  hintText: "Cari Destinasi Foto Favoritmu!!",
                                   prefixIcon: const Icon(Icons.search),
                                   border: OutlineInputBorder(
                                       borderSide: const BorderSide(

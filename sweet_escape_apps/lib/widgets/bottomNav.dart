@@ -36,7 +36,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => const ProfileScreen()));
     }
-     if (index == 3) {
+    if (index == 3) {
       // Periksa apakah indeks yang dipilih adalah 1 (output Review)
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => MyReservation()));

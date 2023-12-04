@@ -91,8 +91,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       borderRadius: BorderRadius.circular(10.0),
 
                       border: Border.all(
-                        color: Colors.black, // Warna border
-                        width: 2.0, // Lebar border
+                        color: Colors.white, // Warna border
+                        width: 1.0, // Lebar border
                       ),
                     ),
                   ),
@@ -110,8 +110,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           189), // Warna latar belakang untuk mode terang
                       borderRadius: BorderRadius.circular(10.0),
                       border: Border.all(
-                        color: Colors.black, // Warna border
-                        width: 2.0, // Lebar border
+                        color: Colors.white, // Warna border
+                        width: 1.0, // Lebar border
                       ),
                     ),
                     child: Column(
