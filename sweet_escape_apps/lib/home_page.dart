@@ -5,7 +5,7 @@ import 'package:sweet_escape_apps/detailpage_bali.dart';
 import 'package:sweet_escape_apps/detailpage_jogja.dart';
 import 'package:sweet_escape_apps/detailpage_malang.dart';
 import 'package:sweet_escape_apps/widgets/bottomNav.dart';
-
+import 'theme.dart';
 import 'authentication.dart';
 
 class HomePage extends StatefulWidget {
@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
                   Container(
                       height: 140,
                       width: double.infinity,
-                      color: const Color.fromARGB(255, 138, 183, 186)),
+                      color: colorMode.secondary),
                   Column(
                     children: [
                       const SizedBox(
@@ -72,7 +72,7 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                     borderRadius: BorderRadius.circular(25),
                                     border: Border.all(
-                                        color: Colors.white,
+                                        color: colorMode.onPrimary,
                                         style: BorderStyle.solid,
                                         width: 2),
                                   ),
@@ -83,7 +83,7 @@ class _HomePageState extends State<HomePage> {
                                 Text(
                                   "Hi, $username. Welcome!",
                                   style: GoogleFonts.montserrat(
-                                      color: Colors.white, fontSize: 20),
+                                      color: colorMode.onPrimary, fontSize: 20),
                                 )
                               ],
                             ),
@@ -99,13 +99,13 @@ class _HomePageState extends State<HomePage> {
                           height: 60,
                           width: double.infinity,
                           decoration: BoxDecoration(
-                              color: const Color(0xFFF5F5F7),
+                              color: colorMode.onPrimary,
                               borderRadius: BorderRadius.circular(30)),
                           child: TextField(
                               cursorHeight: 20,
                               autofocus: false,
                               decoration: InputDecoration(
-                                  hintText: "Cari Destinasi Foto Favoritmu!!",
+                                  hintText: "Cari Cafe & Resto Favoritemu !!",
                                   prefixIcon: const Icon(Icons.search),
                                   border: OutlineInputBorder(
                                       borderSide: const BorderSide(
@@ -148,7 +148,7 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: BorderRadius.circular(10)),
                     elevation: 10,
                     child: Container(
-                      color: const Color.fromARGB(255, 138, 183, 186),
+                      color: colorMode.secondary,
                       child: Column(children: [
                         SizedBox(
                           width: double.infinity,
@@ -180,16 +180,15 @@ class _HomePageState extends State<HomePage> {
                             const SizedBox(width: 5),
                             Row(
                               children: [
-                                const Icon(
+                                Icon(
                                   Icons.star,
-                                  color: Colors.amber,
+                                  color: colorMode.tertiary,
                                 ),
                                 const Text("4.9"),
                                 const SizedBox(width: 20),
-                                const Icon(
+                                Icon(
                                   Icons.place,
-                                  color:
-                                      const Color.fromARGB(255, 241, 213, 189),
+                                  color: colorMode.onSecondary,
                                 ),
                                 const SizedBox(width: 5),
                                 Text(
@@ -219,8 +218,7 @@ class _HomePageState extends State<HomePage> {
                       },
                       child: Text("Details"),
                       style: ElevatedButton.styleFrom(
-                        foregroundColor:
-                            const Color.fromARGB(255, 102, 162, 173),
+                        foregroundColor: colorMode.onTertiary,
                         padding: const EdgeInsets.fromLTRB(
                             20, 10, 20, 10), // Padding tombol
                         shape: RoundedRectangleBorder(
@@ -244,7 +242,7 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: BorderRadius.circular(10)),
                     elevation: 10,
                     child: Container(
-                      color: const Color.fromARGB(255, 138, 183, 186),
+                      color: colorMode.secondary,
                       child: Column(children: [
                         SizedBox(
                           width: double.infinity,
@@ -276,15 +274,15 @@ class _HomePageState extends State<HomePage> {
                             const SizedBox(width: 5),
                             Row(
                               children: [
-                                const Icon(
+                                Icon(
                                   Icons.star,
-                                  color: Colors.amber,
+                                  color: colorMode.tertiary,
                                 ),
                                 const Text("4.5"),
                                 const SizedBox(width: 20),
-                                const Icon(
+                                Icon(
                                   Icons.place,
-                                  color: Color.fromARGB(255, 241, 213, 189),
+                                  color: colorMode.onSecondary,
                                 ),
                                 const SizedBox(width: 5),
                                 Text(
@@ -312,8 +310,7 @@ class _HomePageState extends State<HomePage> {
                       },
                       child: const Text("Details"),
                       style: ElevatedButton.styleFrom(
-                        foregroundColor:
-                            const Color.fromARGB(255, 102, 162, 173),
+                        foregroundColor:colorMode.onTertiary,
                         padding: const EdgeInsets.fromLTRB(
                             20, 10, 20, 10), // Padding tombol
                         shape: RoundedRectangleBorder(
@@ -337,7 +334,7 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: BorderRadius.circular(10)),
                     elevation: 10,
                     child: Container(
-                      color: const Color.fromARGB(255, 138, 183, 186),
+                      color: colorMode.secondary,
                       child: Column(children: [
                         SizedBox(
                           width: double.infinity,
@@ -369,16 +366,15 @@ class _HomePageState extends State<HomePage> {
                             const SizedBox(width: 5),
                             Row(
                               children: [
-                                const Icon(
+                                Icon(
                                   Icons.star,
-                                  color: Colors.amber,
+                                  color: colorMode.tertiary,
                                 ),
                                 const Text("4.7"),
                                 const SizedBox(width: 20),
-                                const Icon(
+                                Icon(
                                   Icons.place,
-                                  color:
-                                      const Color.fromARGB(255, 241, 213, 189),
+                                  color: colorMode.onSecondary,
                                 ),
                                 const SizedBox(width: 5),
                                 Text(
@@ -406,8 +402,7 @@ class _HomePageState extends State<HomePage> {
                       },
                       child: const Text("Details"),
                       style: ElevatedButton.styleFrom(
-                        foregroundColor:
-                            const Color.fromARGB(255, 102, 162, 173),
+                        foregroundColor: colorMode.onTertiary,
                         padding: const EdgeInsets.fromLTRB(
                             20, 10, 20, 10), // Padding tombol
                         shape: RoundedRectangleBorder(
@@ -438,7 +433,7 @@ class Category extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Color.fromARGB(255, 102, 162, 173),
+      color: colorMode.onTertiary,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Container(

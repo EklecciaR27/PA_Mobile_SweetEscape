@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sweet_escape_apps/home_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sweet_escape_apps/input_page.dart';
+import 'package:sweet_escape_apps/theme.dart';
 
 class DetailPageJogja extends StatelessWidget {
   const DetailPageJogja({super.key});
@@ -35,7 +36,7 @@ class DetailPageJogja extends StatelessWidget {
                     left: 16,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color.fromRGBO(127, 127, 127, 1),
+                        backgroundColor: colorMode.onSurface,
                       ),
                       onPressed: () {
                         Navigator.push(
@@ -48,7 +49,7 @@ class DetailPageJogja extends StatelessWidget {
                       child: Container(
                         child: Icon(
                           Icons.arrow_back,
-                          color: Colors.white,
+                          color: colorMode.onPrimary,
                         ),
                         padding: EdgeInsets.all(4),
                         decoration: BoxDecoration(
@@ -61,7 +62,7 @@ class DetailPageJogja extends StatelessWidget {
                   height: height * 0.1,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: colorMode.onPrimary,
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(20),
                           topRight: Radius.circular(20))),
@@ -87,7 +88,7 @@ class DetailPageJogja extends StatelessWidget {
                     children: [
                       Icon(
                         Icons.star,
-                        color: Colors.amber,
+                        color: colorMode.tertiary,
                       ),
                       SizedBox(
                         width: 5,
@@ -99,7 +100,7 @@ class DetailPageJogja extends StatelessWidget {
                     children: [
                       Icon(
                         Icons.access_time,
-                        color: Colors.grey,
+                        color: colorMode.onPrimaryContainer,
                       ),
                       SizedBox(
                         width: 5,
@@ -116,7 +117,7 @@ class DetailPageJogja extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Card(
-                color: Colors.amber[100],
+                color: colorMode.inversePrimary,
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Row(
@@ -242,10 +243,10 @@ class Comment extends StatelessWidget {
                   Text("Zoro Xander"),
                   Row(
                     children: [
-                      Icon(Icons.star, color: Colors.amber),
-                      Icon(Icons.star, color: Colors.amber),
-                      Icon(Icons.star, color: Colors.amber),
-                      Icon(Icons.star, color: Colors.amber),
+                      Icon(Icons.star, color: colorMode.tertiary),
+                      Icon(Icons.star, color: colorMode.tertiary),
+                      Icon(Icons.star, color: colorMode.tertiary),
+                      Icon(Icons.star, color: colorMode.tertiary),
                     ],
                   )
                 ],

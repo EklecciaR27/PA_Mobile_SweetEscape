@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sweet_escape_apps/home_page.dart';
 import 'package:intl/intl.dart';
+import 'package:sweet_escape_apps/theme.dart';
 
 class Confirmation extends StatelessWidget {
   final String? name;
@@ -19,7 +20,7 @@ class Confirmation extends StatelessWidget {
     var tinggi = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xFF66A2AD),
+        backgroundColor: colorMode.primary,
         title: const Text('Confirmation Page'),
       ),
       body: SingleChildScrollView(
@@ -54,10 +55,10 @@ class Confirmation extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Text(
+                    Text(
                       'Booking Confirmed',
                       style: TextStyle(
-                        color: Color(0xFF35656F),
+                        color: colorMode.surface,
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
                       ),
@@ -65,36 +66,36 @@ class Confirmation extends StatelessWidget {
                     const SizedBox(height: 30),
                     Text(
                       'Full Name : $name',
-                      style: const TextStyle(
-                        color: Colors.black,
+                      style: TextStyle(
+                        color: colorMode.primaryContainer,
                         fontSize: 20,
                       ),
                     ),
                     Text(
                       'Number Phone : $numbphone',
-                      style: const TextStyle(
-                        color: Colors.black,
+                      style:  TextStyle(
+                        color: colorMode.primaryContainer,
                         fontSize: 20,
                       ),
                     ),
                     Text(
                       'Location : $selectedLocation',
-                      style: const TextStyle(
-                        color: Colors.black,
+                      style:  TextStyle(
+                        color: colorMode.primaryContainer,
                         fontSize: 20,
                       ),
                     ),
                     Text(
                       'Concept : $radioValue',
-                      style: const TextStyle(
-                        color: Colors.black,
+                      style: TextStyle(
+                        color: colorMode.primaryContainer,
                         fontSize: 20,
                       ),
                     ),
                     Text(
                       'Booking Date : ${selectedDate != null ? DateFormat('dd - MM - yyyy').format(selectedDate!) : 'Belum dipilih'}',
-                      style: const TextStyle(
-                        color: Colors.black,
+                      style: TextStyle(
+                        color: colorMode.primaryContainer,
                         fontSize: 20,
                       ),
                     ),
@@ -113,7 +114,7 @@ class Confirmation extends StatelessWidget {
                     backgroundColor:
                         MaterialStateProperty.all(const Color(0xFF8AB7BA)),
                     foregroundColor:
-                        MaterialStateProperty.all(const Color(0xFF35656F)),
+                        MaterialStateProperty.all(colorMode.surface),
                     fixedSize: MaterialStateProperty.all(const Size(100.0, 50.0)),
                   ),
                   child: const Text("OK!"),
