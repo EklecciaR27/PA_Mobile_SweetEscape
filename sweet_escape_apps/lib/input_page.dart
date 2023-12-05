@@ -9,6 +9,7 @@ import 'confirmation_page.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'theme.dart';
 
 class Reservasi extends StatefulWidget {
   @override
@@ -136,10 +137,10 @@ void _handleSubmit() async {
                       ),
                     ),
                     const SizedBox(height: 30),
-                    const Text(
+                    Text(
                       "Contact Details",
                       style: TextStyle(
-                        color: Color(0xFF35656F),
+                        color: colorMode.surface,
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
                       ),
@@ -148,16 +149,16 @@ void _handleSubmit() async {
                     TextFormField(
                       decoration: InputDecoration(
                         labelText: "Full Name",
-                        labelStyle: const TextStyle(
-                          color: Color(0xFF66A2AD),
+                        labelStyle: TextStyle(
+                          color: colorMode.inverseSurface
                         ),
                         hintText: "Enter your full name",
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(40.0),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                            color: Color(0xFF66A2AD),
+                          borderSide: BorderSide(
+                            color: colorMode.inverseSurface,
                           ),
                           borderRadius: BorderRadius.circular(40.0),
                         ),
@@ -191,16 +192,16 @@ void _handleSubmit() async {
                     TextFormField(
                       decoration: InputDecoration(
                         labelText: "Phone Number",
-                        labelStyle: const TextStyle(
-                          color: Color(0xFF66A2AD),
+                        labelStyle: TextStyle(
+                          color: colorMode.inverseSurface,
                         ),
                         hintText: "Enter your phone number",
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(40.0),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                            color: Color(0xFF66A2AD),
+                          borderSide: BorderSide(
+                            color: colorMode.inverseSurface,
                           ),
                           borderRadius: BorderRadius.circular(40.0),
                         ),
@@ -225,10 +226,10 @@ void _handleSubmit() async {
                       },
                     ),
                     const SizedBox(height: 40),
-                    const Text(
+                    Text(
                       "Location",
                       style: TextStyle(
-                        color: Color(0xFF35656F),
+                        color: colorMode.surface,
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
                       ),
@@ -245,7 +246,7 @@ void _handleSubmit() async {
                             child: Text(
                               value,
                               style: TextStyle(
-                                color: Color(0xFF35656F),
+                                color: colorMode.surface,
                               ),
                             ),
                           );
@@ -258,16 +259,16 @@ void _handleSubmit() async {
                         hint: Text(
                           'Select Location',
                           style: TextStyle(
-                            color: Color(0xFF66A2AD),
+                            color: colorMode.inverseSurface,
                           ),
                         ),
                       ),
                     ),
                     const SizedBox(height: 40),
-                    const Text(
+                    Text(
                       "Concept",
                       style: TextStyle(
-                        color: Color(0xFF35656F),
+                        color: colorMode.surface,
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
                       ),
@@ -325,10 +326,10 @@ void _handleSubmit() async {
                       ),
                     ),
                     const SizedBox(height: 40),
-                    const Text(
+                    Text(
                       "Booking Date",
                       style: TextStyle(
-                        color: Color(0xFF35656F),
+                        color: colorMode.surface,
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
                       ),
@@ -338,9 +339,9 @@ void _handleSubmit() async {
                       padding: const EdgeInsets.only(left: 20.0),
                       child: Row(
                         children: [
-                          const Icon(
+                          Icon(
                             Icons.calendar_today,
-                            color: Color(0xFF66A2AD),
+                            color: colorMode.inverseSurface,
                           ),
                           TextButton(
                             onPressed: () async {
@@ -379,7 +380,7 @@ void _handleSubmit() async {
                         backgroundColor:
                             MaterialStateProperty.all(const Color(0xFF8AB7BA)),
                         foregroundColor:
-                            MaterialStateProperty.all(const Color(0xFF35656F)),
+                            MaterialStateProperty.all(colorMode.surface,),
                         fixedSize:
                             MaterialStateProperty.all(const Size(100.0, 50.0)),
                       ),

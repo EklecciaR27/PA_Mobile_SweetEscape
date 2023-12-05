@@ -10,6 +10,7 @@ import 'package:sweet_escape_apps/input_page.dart';
 import 'signIn.dart';
 import 'package:sweet_escape_apps/models/reservation_provider.dart';
 import 'package:provider/provider.dart';
+import 'theme.dart';
 
 void main() async {
   //untuk datanya bisa masuk dalam firebasenya
@@ -39,9 +40,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Color(0xFF66A2AD),
-        ),
+        colorScheme: colorMode,
+        textTheme: teksMode,
+        elevatedButtonTheme: btnMode,
+        iconTheme: iconMode,
         useMaterial3: true,
       ),
       home: Reservasi(),
