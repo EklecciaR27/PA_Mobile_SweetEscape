@@ -14,7 +14,7 @@ ColorScheme colorMode = ColorScheme.fromSeed(
   inverseSurface: Color(0xFF66A2AD),
   onSurface: Color.fromRGBO(127, 127, 127, 1),
   onTertiary: Color.fromARGB(255, 102, 162, 173),
-  primaryContainer: Color.fromARGB(255, 0, 0, 0),
+  primaryContainer: Colors.transparent,
 );
 
 // tema teks style: Theme.of(context).textTheme.displayLarge,
@@ -43,3 +43,20 @@ TextTheme teksMode = TextTheme(
 IconThemeData iconMode = IconThemeData(
   color: colorMode.onPrimary,
 );
+
+// tema elevated button
+// ElevatedButtonThemeData btnMode = ElevatedButtonThemeData(
+//   style: ElevatedButton.styleFrom(
+//     elevation: 0.7,
+//     backgroundColor: Color(0xFFA8E25C),
+//     foregroundColor: Colors.white,
+//     shape: RoundedRectangleBorder(
+//       borderRadius: BorderRadius.circular(6),
+//     ),
+//     textStyle: TextStyle(
+//       fontSize: 26,
+//       fontFamily: "dity",
+//       color: colorMode.onPrimaryContainer,
+//     ),
+//   ),
+// );
