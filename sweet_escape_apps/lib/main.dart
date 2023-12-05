@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: colorMode,
         textTheme: teksMode,
-        elevatedButtonTheme: btnMode,
+        // elevatedButtonTheme: btnMode,
         iconTheme: iconMode,
         useMaterial3: true,
       ),

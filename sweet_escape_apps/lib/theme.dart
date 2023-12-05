@@ -43,20 +43,3 @@ TextTheme teksMode = TextTheme(
 IconThemeData iconMode = IconThemeData(
   color: colorMode.onPrimary,
 );
-
-// tema elevated button
-ElevatedButtonThemeData btnMode = ElevatedButtonThemeData(
-  style: ElevatedButton.styleFrom(
-    elevation: 0.7,
-    backgroundColor: Color(0xFFA8E25C),
-    foregroundColor: Colors.white,
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(6),
-    ),
-    textStyle: TextStyle(
-      fontSize: 26,
-      fontFamily: "dity",
-      color: colorMode.onPrimaryContainer,
-    ),
-  ),
-);

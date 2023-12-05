@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:sweet_escape_apps/theme.dart';
 
 class History extends StatelessWidget {
   final String? name;
@@ -28,11 +29,7 @@ class History extends StatelessWidget {
               children: <Widget>[
                 Text(
                   'RESERVASI BERHASIL !!!',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: Theme.of(context).textTheme.headlineMedium,
                 ),
                 SizedBox(height: 20),
                 ListView.builder(
@@ -46,31 +43,19 @@ class History extends StatelessWidget {
                         SizedBox(height: 30),
                         Text(
                           'Nama : ${reservation['name']}',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 20,
-                          ),
+                          style: Theme.of(context).textTheme.headlineSmall,
                         ),
                         Text(
                           'Nomor Telepon : ${reservation['numbphone']}',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 20,
-                          ),
+                          style: Theme.of(context).textTheme.headlineSmall,
                         ),
                         Text(
                           'Konsep : ${reservation['radioValue']}',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 20,
-                          ),
+                          style: Theme.of(context).textTheme.headlineSmall,
                         ),
                         Text(
                           'Tanggal Booking : ${reservation['selectedDate'] != null ? DateFormat('dd - MM - yyyy').format(reservation['selectedDate'] as DateTime) : 'Belum Dipilih'}',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 20,
-                          ),
+                          style: Theme.of(context).textTheme.headlineSmall,
                         ),
                         SizedBox(height: 30),
                       ],
