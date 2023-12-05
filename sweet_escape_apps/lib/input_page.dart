@@ -26,6 +26,7 @@ class _ReservasiState extends State<Reservasi> {
   DateTime? selectedDate;
   FocusNode nameFocus = FocusNode();
   FocusNode phoneFocus = FocusNode();
+  bool showError = true;
 
   List<Map<String, dynamic>> reservations = [];
 
@@ -45,7 +46,6 @@ class _ReservasiState extends State<Reservasi> {
     User? user = FirebaseAuth.instance.currentUser;
 
     if (user != null) {
-      // ambil emailnya
       String userEmail = user.email ?? '';
 
       final newReservation = Reservation(
@@ -57,7 +57,6 @@ class _ReservasiState extends State<Reservasi> {
         email: userEmail,
       );
 
-      // Tambahkan data reservasi ke menggunakan Provider
       reservationProvider.addReservation(newReservation);
     }
   }
@@ -71,6 +70,36 @@ class _ReservasiState extends State<Reservasi> {
     phoneFocus.dispose();
     super.dispose();
   }
+
+void _handleSubmit() async {
+  setState(() => showError = true);
+
+  if (name != null && numbphone != null && name!.isNotEmpty && numbphone!.isNotEmpty) {
+    final reservationProvider = Provider.of<ReservationProvider>(context, listen: false);
+    _incrementCounter(reservationProvider);
+
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => Confirmation(
+          name,
+          numbphone,
+          radioValue,
+          selectedDate,
+          selectedLocation,
+          reservations,
+        ),
+      ),
+    );
+  } else {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Please enter your full name and phone number.'),
+        backgroundColor: const Color.fromARGB(255, 243, 33, 33),
+        duration: Duration(seconds: 3),
+      ),
+    );
+  }
+}
 
   @override
   Widget build(BuildContext context) {
@@ -138,6 +167,12 @@ class _ReservasiState extends State<Reservasi> {
                           ),
                           borderRadius: BorderRadius.circular(40.0),
                         ),
+                        errorBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            color: Color(0xFFD32F2F),
+                          ),
+                          borderRadius: BorderRadius.circular(40.0),
+                        ),
                       ),
                       onChanged: (String value) {
                         setState(() {
@@ -145,6 +180,12 @@ class _ReservasiState extends State<Reservasi> {
                         });
                       },
                       focusNode: nameFocus,
+                      validator: (value) {
+                        if (showError && (value == null || value.isEmpty)) {
+                          return 'Please enter your full name';
+                        }
+                        return null;
+                      },
                     ),
                     const SizedBox(height: 20),
                     TextFormField(
@@ -176,6 +217,12 @@ class _ReservasiState extends State<Reservasi> {
                         });
                       },
                       focusNode: phoneFocus,
+                      validator: (value) {
+                        if (showError && (value == null || value.isEmpty)) {
+                          return 'Please enter your phone number';
+                        }
+                        return null;
+                      },
                     ),
                     const SizedBox(height: 40),
                     const Text(
@@ -327,26 +374,7 @@ class _ReservasiState extends State<Reservasi> {
                     ),
                     const SizedBox(height: 50),
                     ElevatedButton(
-                      onPressed: () {
-                        //_incrementCounter();
-                        final reservationProvider =
-                            Provider.of<ReservationProvider>(
-                          context,
-                          listen: false,
-                        );
-                        _incrementCounter(reservationProvider);
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => Confirmation(
-                                name,
-                                numbphone,
-                                radioValue,
-                                selectedDate,
-                                selectedLocation,
-                                reservations),
-                          ),
-                        );
-                      },
+                      onPressed: () => _handleSubmit(),
                       style: ButtonStyle(
                         backgroundColor:
                             MaterialStateProperty.all(const Color(0xFF8AB7BA)),
