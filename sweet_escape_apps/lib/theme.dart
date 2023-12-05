@@ -14,7 +14,7 @@ ColorScheme colorMode = ColorScheme.fromSeed(
   inverseSurface: Color(0xFF66A2AD),
   onSurface: Color.fromRGBO(127, 127, 127, 1),
   onTertiary: Color.fromARGB(255, 102, 162, 173),
-  primaryContainer: Colors.transparent,
+  primaryContainer: Color.fromARGB(255, 0, 0, 0),
 );
 
 // tema teks style: Theme.of(context).textTheme.displayLarge,

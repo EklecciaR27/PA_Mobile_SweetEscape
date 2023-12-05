@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
         iconTheme: iconMode,
         useMaterial3: true,
       ),
-      home: Reservasi(),
+      home: const OnBoardingScreen(),
       //Reservasi(),
     );
   }
