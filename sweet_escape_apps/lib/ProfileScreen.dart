@@ -120,13 +120,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       const SizedBox(height: 10),
                       Text(
                         "$username",
-                        style: Theme.of(context).textTheme.headlineLarge,
+                        style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'AutofillHints.creditCardFamilyName',
+                            color: Color.fromRGBO(19, 32, 67, 1),
+                          ),
                         textAlign: TextAlign.center,
                       ),
                       const SizedBox(height: 10),
                       Text(
                         "${user?.email}",
-                        style: Theme.of(context).textTheme.headlineLarge,
+                        style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'AutofillHints.creditCardFamilyName',
+                            color: Color.fromRGBO(19, 32, 67, 1),
+                          ),
                         textAlign: TextAlign.center,
                       ),
                       const SizedBox(height: 10),

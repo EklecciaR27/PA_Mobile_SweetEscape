@@ -41,12 +41,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: colorMode,
-        textTheme: teksMode,
-        // elevatedButtonTheme: btnMode,
         iconTheme: iconMode,
         useMaterial3: true,
       ),
-      home: const OnBoardingScreen(),
+      home: const HomePage(),
       //Reservasi(),
     );
   }
