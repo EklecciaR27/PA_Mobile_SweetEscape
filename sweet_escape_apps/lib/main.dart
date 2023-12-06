@@ -42,6 +42,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: colorMode,
         iconTheme: iconMode,
+        textTheme :  teksMode, 
         useMaterial3: true,
       ),
       home: const HomePage(),

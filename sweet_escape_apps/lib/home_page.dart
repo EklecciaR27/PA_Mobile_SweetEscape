@@ -171,11 +171,10 @@ class _HomePageState extends State<HomePage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const SizedBox(height: 7),
+                            const SizedBox(height: 10),
                             Text(
                               "Bali",
-                              style: GoogleFonts.montserrat(
-                                  fontSize: 17, fontWeight: FontWeight.bold),
+                              style: Theme.of(context).textTheme.headlineMedium,
                             ),
                             const SizedBox(width: 5),
                             Row(
@@ -184,7 +183,10 @@ class _HomePageState extends State<HomePage> {
                                   Icons.star,
                                   color: colorMode.tertiary,
                                 ),
-                                const Text("4.9"),
+                                Text(
+                                  "4.9",
+                                  style: Theme.of(context).textTheme.bodyMedium,
+                                ),
                                 const SizedBox(width: 20),
                                 Icon(
                                   Icons.place,
@@ -193,7 +195,7 @@ class _HomePageState extends State<HomePage> {
                                 const SizedBox(width: 5),
                                 Text(
                                   "Ubud | Kintamani",
-                                  style: GoogleFonts.montserrat(fontSize: 12),
+                                  style: Theme.of(context).textTheme.bodyMedium,
                                 )
                               ],
                             )
@@ -255,6 +257,7 @@ class _HomePageState extends State<HomePage> {
                       ]),
                     ),
                   ),
+                  
                   Positioned(
                     bottom: 0,
                     left: 10,
@@ -265,11 +268,10 @@ class _HomePageState extends State<HomePage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const SizedBox(height: 7),
+                            const SizedBox(height: 10),
                             Text(
                               "Malang",
-                              style: GoogleFonts.montserrat(
-                                  fontSize: 17, fontWeight: FontWeight.bold),
+                              style: Theme.of(context).textTheme.headlineMedium,
                             ),
                             const SizedBox(width: 5),
                             Row(
@@ -278,7 +280,10 @@ class _HomePageState extends State<HomePage> {
                                   Icons.star,
                                   color: colorMode.tertiary,
                                 ),
-                                const Text("4.5"),
+                                Text(
+                                  "4.5",
+                                  style: Theme.of(context).textTheme.bodyMedium,
+                                ),
                                 const SizedBox(width: 20),
                                 Icon(
                                   Icons.place,
@@ -287,7 +292,7 @@ class _HomePageState extends State<HomePage> {
                                 const SizedBox(width: 5),
                                 Text(
                                   "Mount Bromo",
-                                  style: GoogleFonts.montserrat(fontSize: 12),
+                                  style: Theme.of(context).textTheme.bodyMedium,
                                 )
                               ],
                             )
@@ -310,7 +315,7 @@ class _HomePageState extends State<HomePage> {
                       },
                       child: const Text("Details"),
                       style: ElevatedButton.styleFrom(
-                        foregroundColor:colorMode.onTertiary,
+                        foregroundColor: colorMode.onTertiary,
                         padding: const EdgeInsets.fromLTRB(
                             20, 10, 20, 10), // Padding tombol
                         shape: RoundedRectangleBorder(
@@ -357,11 +362,10 @@ class _HomePageState extends State<HomePage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const SizedBox(height: 7),
+                            const SizedBox(height: 10),
                             Text(
                               "Yogyakarta",
-                              style: GoogleFonts.montserrat(
-                                  fontSize: 17, fontWeight: FontWeight.bold),
+                              style: Theme.of(context).textTheme.headlineMedium,
                             ),
                             const SizedBox(width: 5),
                             Row(
@@ -370,7 +374,10 @@ class _HomePageState extends State<HomePage> {
                                   Icons.star,
                                   color: colorMode.tertiary,
                                 ),
-                                const Text("4.7"),
+                                Text(
+                                  "4.7",
+                                  style: Theme.of(context).textTheme.bodyMedium,
+                                ),
                                 const SizedBox(width: 20),
                                 Icon(
                                   Icons.place,
@@ -379,7 +386,7 @@ class _HomePageState extends State<HomePage> {
                                 const SizedBox(width: 5),
                                 Text(
                                   "Candi Prambanan",
-                                  style: GoogleFonts.montserrat(fontSize: 12),
+                                  style: Theme.of(context).textTheme.bodyMedium,
                                 )
                               ],
                             )

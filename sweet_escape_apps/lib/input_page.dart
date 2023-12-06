@@ -72,35 +72,39 @@ class _ReservasiState extends State<Reservasi> {
     super.dispose();
   }
 
-void _handleSubmit() async {
-  setState(() => showError = true);
+  void _handleSubmit() async {
+    setState(() => showError = true);
 
-  if (name != null && numbphone != null && name!.isNotEmpty && numbphone!.isNotEmpty) {
-    final reservationProvider = Provider.of<ReservationProvider>(context, listen: false);
-    _incrementCounter(reservationProvider);
+    if (name != null &&
+        numbphone != null &&
+        name!.isNotEmpty &&
+        numbphone!.isNotEmpty) {
+      final reservationProvider =
+          Provider.of<ReservationProvider>(context, listen: false);
+      _incrementCounter(reservationProvider);
 
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) => Confirmation(
-          name,
-          numbphone,
-          radioValue,
-          selectedDate,
-          selectedLocation,
-          reservations,
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => Confirmation(
+            name,
+            numbphone,
+            radioValue,
+            selectedDate,
+            selectedLocation,
+            reservations,
+          ),
         ),
-      ),
-    );
-  } else {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text('Please enter your full name and phone number.'),
-        backgroundColor: const Color.fromARGB(255, 243, 33, 33),
-        duration: Duration(seconds: 3),
-      ),
-    );
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Please enter your full name and phone number.'),
+          backgroundColor: const Color.fromARGB(255, 243, 33, 33),
+          duration: Duration(seconds: 3),
+        ),
+      );
+    }
   }
-}
 
   @override
   Widget build(BuildContext context) {
@@ -139,19 +143,13 @@ void _handleSubmit() async {
                     const SizedBox(height: 30),
                     Text(
                       "Contact Details",
-                      style: TextStyle(
-                        color: colorMode.surface,
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: Theme.of(context).textTheme.headlineSmall,
                     ),
                     const SizedBox(height: 10),
                     TextFormField(
                       decoration: InputDecoration(
                         labelText: "Full Name",
-                        labelStyle: TextStyle(
-                          color: colorMode.inverseSurface
-                        ),
+                        labelStyle: TextStyle(color: colorMode.inverseSurface),
                         hintText: "Enter your full name",
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(40.0),
@@ -228,11 +226,7 @@ void _handleSubmit() async {
                     const SizedBox(height: 40),
                     Text(
                       "Location",
-                      style: TextStyle(
-                        color: colorMode.surface,
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: Theme.of(context).textTheme.headlineSmall,
                     ),
                     const SizedBox(height: 10),
                     Padding(
@@ -246,7 +240,7 @@ void _handleSubmit() async {
                             child: Text(
                               value,
                               style: TextStyle(
-                                color: colorMode.surface,
+                                color: colorMode.primary,
                               ),
                             ),
                           );
@@ -258,20 +252,14 @@ void _handleSubmit() async {
                         },
                         hint: Text(
                           'Select Location',
-                          style: TextStyle(
-                            color: colorMode.inverseSurface,
-                          ),
+                          style: Theme.of(context).textTheme.headlineSmall,
                         ),
                       ),
                     ),
                     const SizedBox(height: 40),
                     Text(
                       "Concept",
-                      style: TextStyle(
-                        color: colorMode.surface,
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: Theme.of(context).textTheme.headlineSmall,
                     ),
                     const SizedBox(height: 10),
                     RadioListTile(
@@ -328,11 +316,7 @@ void _handleSubmit() async {
                     const SizedBox(height: 40),
                     Text(
                       "Booking Date",
-                      style: TextStyle(
-                        color: colorMode.surface,
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: Theme.of(context).textTheme.headlineSmall,
                     ),
                     const SizedBox(height: 10),
                     Padding(
@@ -379,8 +363,9 @@ void _handleSubmit() async {
                       style: ButtonStyle(
                         backgroundColor:
                             MaterialStateProperty.all(const Color(0xFF8AB7BA)),
-                        foregroundColor:
-                            MaterialStateProperty.all(colorMode.surface,),
+                        foregroundColor: MaterialStateProperty.all(
+                          colorMode.surface,
+                        ),
                         fixedSize:
                             MaterialStateProperty.all(const Size(100.0, 50.0)),
                       ),

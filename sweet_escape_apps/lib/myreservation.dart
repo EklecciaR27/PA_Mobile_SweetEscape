@@ -5,6 +5,7 @@ import 'package:sweet_escape_apps/models/reservation.dart';
 import 'package:sweet_escape_apps/models/reservation_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
+import 'theme.dart';
 
 class MyReservation extends StatelessWidget {
   const MyReservation({Key? key});
@@ -24,9 +25,10 @@ class MyReservation extends StatelessWidget {
           if (snapshot.hasError) {
             return Text('Error: ${snapshot.error}');
           }
-
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const CircularProgressIndicator(); // Menampilkan loading jika data masih diambil
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
           }
 
           if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
@@ -37,15 +39,11 @@ class MyReservation extends StatelessWidget {
           return ListView(
             //crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Padding(
+              Padding(
                 padding: EdgeInsets.only(top: 10, left: 16),
                 child: Text(
                   'My Reservation',
-                  style: TextStyle(
-                    color: Color(0xFF35656F),
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: Theme.of(context).textTheme.headlineSmall,
                 ),
               ),
               ListView.builder(
@@ -66,13 +64,85 @@ class MyReservation extends StatelessWidget {
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  '${reservation['selectedDate'] != null ? DateFormat('dd - MMMM - yyyy').format(reservation['selectedDate'].toDate()) : 'Belum dipilih'}',
-                                  style: const TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 25,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                Row(
+                                  children: [
+                                    Text(
+                                      '${reservation['selectedDate'] != null ? DateFormat('dd - MMMM - yyyy').format(reservation['selectedDate'].toDate()) : 'Belum dipilih'}',
+                                      style: const TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Column(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        Container(
+                                          margin:
+                                              EdgeInsets.fromLTRB(50, 0, 0, 0),
+                                          // padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
+                                          child: GestureDetector(
+                                            onTap: () {
+                                              if (reservation != null) {
+                                                showDialog(
+                                                  context: context,
+                                                  builder:
+                                                      (BuildContext context) {
+                                                    return AlertDialog(
+                                                      title: const Text(
+                                                          'Konfirmasi'),
+                                                      content: const Text(
+                                                          'Apakah Anda yakin ingin menghapus data ini?'),
+                                                      actions: <Widget>[
+                                                        TextButton(
+                                                          onPressed: () {
+                                                            Navigator.of(
+                                                                    context)
+                                                                .pop();
+                                                          },
+                                                          child: const Text(
+                                                              'Batal'),
+                                                        ),
+                                                        TextButton(
+                                                          onPressed: () {
+                                                            // Hapus data di Firestore
+                                                            FirebaseFirestore
+                                                                .instance
+                                                                .collection(
+                                                                    'data_reservasi')
+                                                                .doc(reservation
+                                                                    .id)
+                                                                .delete()
+                                                                .then((value) =>
+                                                                    Navigator.of(
+                                                                            context)
+                                                                        .pop())
+                                                                .catchError(
+                                                                    (error) =>
+                                                                        print(
+                                                                            "Gagal menghapus data: $error"));
+                                                          },
+                                                          child: const Text(
+                                                              'Hapus'),
+                                                        ),
+                                                      ],
+                                                    );
+                                                  },
+                                                );
+                                              }
+
+                                              //print("CIAAA DISINI YA TAP NYA");
+                                            },
+                                            child: Icon(
+                                              Icons.delete_forever_outlined,
+                                              color: const Color.fromARGB(
+                                                  255, 241, 213, 189),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
                                 ),
                                 const SizedBox(height: 10),
                                 Text(
@@ -112,67 +182,13 @@ class MyReservation extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            Column(
-                              //mainAxisAlignment: MainAxisAlignment.end,
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                Container(
-                                  width: lebar * 0.2,
-                                  margin: EdgeInsets.fromLTRB(30, 0, 0, 0),
-                                  // padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      // Add your logic for handling the click here
-                                      if (reservation != null) {
-                                        showDialog(
-                                          context: context,
-                                          builder: (BuildContext context) {
-                                            return AlertDialog(
-                                              title: const Text('Konfirmasi'),
-                                              content: const Text(
-                                                  'Apakah Anda yakin ingin menghapus data ini?'),
-                                              actions: <Widget>[
-                                                TextButton(
-                                                  onPressed: () {
-                                                    Navigator.of(context).pop();
-                                                  },
-                                                  child: const Text('Batal'),
-                                                ),
-                                                TextButton(
-                                                  onPressed: () {
-                                                    // Hapus data di Firestore
-                                                    FirebaseFirestore.instance
-                                                        .collection(
-                                                            'data_reservasi')
-                                                        .doc(reservation.id)
-                                                        .delete()
-                                                        .then((value) =>
-                                                            Navigator.of(
-                                                                    context)
-                                                                .pop())
-                                                        .catchError((error) =>
-                                                            print(
-                                                                "Gagal menghapus data: $error"));
-                                                  },
-                                                  child: const Text('Hapus'),
-                                                ),
-                                              ],
-                                            );
-                                          },
-                                        );
-                                      }
+                            // Column(
+                            //   //mainAxisAlignment: MainAxisAlignment.end,
+                            //   crossAxisAlignment: CrossAxisAlignment.end,
+                            //   children: [
 
-                                      //print("CIAAA DISINI YA TAP NYA");
-                                    },
-                                    child: Icon(
-                                      Icons.delete_forever_outlined,
-                                      color: const Color.fromARGB(
-                                          255, 241, 213, 189),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            )
+                            //   ],
+                            // )
                           ],
                         ),
                       ),
