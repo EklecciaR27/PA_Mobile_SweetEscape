@@ -7,6 +7,7 @@ import 'package:sweet_escape_apps/ProfileScreen.dart';
 import 'package:sweet_escape_apps/firebase_options.dart';
 import 'package:sweet_escape_apps/home_page.dart';
 import 'package:sweet_escape_apps/input_page.dart';
+import 'package:sweet_escape_apps/signUp.dart';
 import 'signIn.dart';
 import 'package:sweet_escape_apps/models/reservation_provider.dart';
 import 'package:provider/provider.dart';
@@ -42,10 +43,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: colorMode,
         iconTheme: iconMode,
-        textTheme :  teksMode, 
+        textTheme: teksMode,
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      home: const OnBoardingScreen(),
       //Reservasi(),
     );
   }

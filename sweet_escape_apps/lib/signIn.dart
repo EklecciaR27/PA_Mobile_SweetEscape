@@ -107,7 +107,7 @@ class _LoginState extends State<Login> {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SizedBox(height: 50),
+                            SizedBox(height: 30),
                             TextFormField(
                               controller: _ctrlEmail,
                               validator: (value) {

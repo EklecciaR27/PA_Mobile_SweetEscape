@@ -32,15 +32,16 @@ class MyReservation extends StatelessWidget {
           }
 
           if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
-            return const Text(
-                'ANDA BELUM MELAKUKAN RESERVASI'); // Tampilkan pesan jika tidak ada data
+            return const Center(
+              child: Text('ANDA BELUM MELAKUKAN RESERVASI'),
+            ); // Tampilkan pesan jika tidak ada data
           }
 
           return ListView(
             //crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsets.only(top: 10, left: 16),
+                padding: const EdgeInsets.only(top: 10, left: 16),
                 child: Text(
                   'My Reservation',
                   style: Theme.of(context).textTheme.headlineSmall,
@@ -130,7 +131,7 @@ class MyReservation extends StatelessWidget {
                               top: 0,
                               left: 230,
                               child: Container(
-                                margin: EdgeInsets.fromLTRB(50, 0, 0, 0),
+                                margin: const EdgeInsets.fromLTRB(50, 0, 0, 0),
                                 // padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
                                 child: GestureDetector(
                                   onTap: () {
@@ -171,10 +172,9 @@ class MyReservation extends StatelessWidget {
                                       );
                                     }
                                   },
-                                  child: Icon(
+                                  child: const Icon(
                                     Icons.delete_forever_outlined,
-                                    color: const Color.fromARGB(
-                                        255, 241, 213, 189),
+                                    color: Color.fromARGB(255, 241, 213, 189),
                                   ),
                                 ),
                               ),
@@ -191,7 +191,7 @@ class MyReservation extends StatelessWidget {
         },
       );
     } else {
-      return Center(child: const Text('Tidak ada pengguna yang login'));
+      return const Center(child: Text('Tidak ada pengguna yang login'));
     }
   }
 }

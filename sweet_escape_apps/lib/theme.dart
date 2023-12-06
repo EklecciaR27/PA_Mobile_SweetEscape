@@ -23,8 +23,11 @@ IconThemeData iconMode = IconThemeData(
 );
 
 TextTheme teksMode = TextTheme(
-  headlineLarge: const TextStyle(
-      fontSize: 5, fontWeight: FontWeight.bold, color: Color(0xFF35656F)),
+  headlineLarge: GoogleFonts.montserrat(
+    fontSize: 15,
+    fontWeight: FontWeight.bold,
+    color: const Color.fromARGB(255, 241, 213, 189),
+  ),
   headlineMedium: GoogleFonts.montserrat(
       color: const Color.fromARGB(255, 0, 0, 0),
       fontSize: 20,

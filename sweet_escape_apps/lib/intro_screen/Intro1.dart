@@ -20,6 +20,7 @@ class Intro1 extends StatelessWidget {
             width: 300.0,
             height: 280.0,
           ),
+          const SizedBox(height: 60),
           // ignore: avoid_unnecessary_containers
           // Container(
           //   padding: EdgeInsets.fromLTRB(lebar * 0.1, 60, lebar * 0.1, 20),
@@ -27,10 +28,7 @@ class Intro1 extends StatelessWidget {
             children: [
               Text(
                 "WELCOME TO SWEET ESCAPE APP",
-                style: GoogleFonts.montserrat(
-                    color: const Color.fromARGB(255, 241, 213, 189),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15),
+                style: Theme.of(context).textTheme.headlineLarge,
               ),
             ],
           ),

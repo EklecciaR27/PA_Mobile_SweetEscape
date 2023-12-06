@@ -27,6 +27,11 @@ class _RegisState extends State<Regis> {
     try {
       setState(() => _loading = true);
       await Auth().regis(email, password, username);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Register successful!'),
+        ),
+      );
     } catch (e) {
       print('Kesalahan selama registrasi: $e');
     } finally {
@@ -60,7 +65,7 @@ class _RegisState extends State<Regis> {
                   child: Container(
                     margin: EdgeInsets.only(),
                     width: lebar,
-                    height: 500,
+                    height: 480,
                     decoration: BoxDecoration(
                       color: const Color.fromARGB(255, 255, 255, 255),
                       borderRadius:
@@ -69,7 +74,7 @@ class _RegisState extends State<Regis> {
                     child: Padding(
                       padding: const EdgeInsets.all(30.0),
                       child: Container(
-                        margin: EdgeInsets.only(top: 10),
+                        // margin: EdgeInsets.only(top: 5),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -80,7 +85,7 @@ class _RegisState extends State<Regis> {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SizedBox(height: 50),
+                            SizedBox(height: 20),
                             TextFormField(
                               controller: _ctrlUsername,
                               validator: (value) {
@@ -160,7 +165,10 @@ class _RegisState extends State<Regis> {
                               },
                               child: Text(
                                   "Sudah Punya Akun? Klik Disini Untuk Login"),
-                            )
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
                           ],
                         ),
                       ),

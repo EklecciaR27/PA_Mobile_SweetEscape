@@ -24,7 +24,7 @@ class DetailPageMalang extends StatelessWidget {
                 Container(
                   height: height * 0.4,
                   width: width,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       image: DecorationImage(
                           fit: BoxFit.cover,
                           image: AssetImage("images/malang.jpg"))),
@@ -36,13 +36,13 @@ class DetailPageMalang extends StatelessWidget {
                     left: 16,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color.fromRGBO(127, 127, 127, 1),
+                        backgroundColor: const Color.fromRGBO(127, 127, 127, 1),
                       ),
                       onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => HomePage(),
+                            builder: (context) => const HomePage(),
                           ),
                         );
                       },
@@ -51,8 +51,8 @@ class DetailPageMalang extends StatelessWidget {
                           Icons.arrow_back,
                           color: colorMode.onPrimary,
                         ),
-                        padding: EdgeInsets.all(4),
-                        decoration: BoxDecoration(
+                        padding: const EdgeInsets.all(4),
+                        decoration: const BoxDecoration(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(20))),
                       ),
@@ -63,7 +63,7 @@ class DetailPageMalang extends StatelessWidget {
                   width: double.infinity,
                   decoration: BoxDecoration(
                       color: colorMode.onPrimary,
-                      borderRadius: BorderRadius.only(
+                      borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(20),
                           topRight: Radius.circular(20))),
                   child: Padding(
@@ -90,7 +90,7 @@ class DetailPageMalang extends StatelessWidget {
                         Icons.star,
                         color: colorMode.tertiary,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 5,
                       ),
                       Text("4.5", style: GoogleFonts.montserrat(fontSize: 12)),
@@ -102,7 +102,7 @@ class DetailPageMalang extends StatelessWidget {
                         Icons.access_time,
                         color: colorMode.onPrimaryContainer,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 5,
                       ),
                       Text("07.00 - 14.00",
@@ -144,7 +144,7 @@ class DetailPageMalang extends StatelessWidget {
                                   builder: (context) => Reservasi(),
                                 ));
                           },
-                          child: Text("BOOK NOW"))
+                          child: const Text("BOOK NOW"))
                     ],
                   ),
                 ),
@@ -162,7 +162,7 @@ class DetailPageMalang extends StatelessWidget {
                     style: GoogleFonts.montserrat(
                         fontSize: 14, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Text("Mount Bromo",
@@ -184,7 +184,7 @@ class DetailPageMalang extends StatelessWidget {
                     style: GoogleFonts.montserrat(
                         fontSize: 14, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Text(
@@ -205,10 +205,10 @@ class DetailPageMalang extends StatelessWidget {
                     fontSize: 14, fontWeight: FontWeight.bold),
               ),
             ),
-            Comment(),
-            Comment(),
-            Comment(),
-            Comment(),
+            const Comment(),
+            const Comment(),
+            const Comment(),
+            const Comment(),
           ],
         )),
       ),
@@ -233,13 +233,13 @@ class Comment extends StatelessWidget {
                 "https://i0.wp.com/studiolorier.com/wp-content/uploads/2018/10/Profile-Round-Sander-Lorier.jpg",
                 width: 30,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Zoro Xander"),
+                  const Text("Zoro Xander"),
                   Row(
                     children: [
                       Icon(Icons.star, color: colorMode.tertiary),

@@ -18,15 +18,13 @@ class Intro3 extends StatelessWidget {
               width: 300.0,
               height: 280.0,
             ),
+            const SizedBox(height: 60),
             // ignore: avoid_unnecessary_containers
             Container(
-              padding: const EdgeInsets.fromLTRB(50, 100, 0, 20),
+              padding: const EdgeInsets.only(left: 30),
               child: Text(
-                '\t \t \t \t \t \t Quick and easy bookings. \n Start booking with SweetEscape now!',
-                style: GoogleFonts.montserrat(
-                    color: Color.fromARGB(255, 241, 213, 189),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15),
+                '\t \t \t  \t \t Quick and easy bookings. \n Start booking with SweetEscape now!',
+                style: Theme.of(context).textTheme.headlineLarge,
               ),
             ),
           ],

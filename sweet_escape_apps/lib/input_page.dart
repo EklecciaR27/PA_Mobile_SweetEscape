@@ -109,9 +109,8 @@ class _ReservasiState extends State<Reservasi> {
   @override
   Widget build(BuildContext context) {
     var lebar = MediaQuery.of(context).size.width;
-    var tinggi = MediaQuery.of(context).size.height;
+    // var tinggi = MediaQuery.of(context).size.height;
     var currentIndex = 1;
-
     return DefaultTabController(
         length: 2,
         child: Scaffold(
@@ -132,6 +131,7 @@ class _ReservasiState extends State<Reservasi> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
                     Container(
+                      width: lebar,
                       height: 170,
                       decoration: BoxDecoration(
                         image: DecorationImage(
