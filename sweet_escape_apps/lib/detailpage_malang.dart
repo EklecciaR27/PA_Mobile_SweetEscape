@@ -119,7 +119,8 @@ class DetailPageMalang extends StatelessWidget {
               child: Card(
                 color: colorMode.inversePrimary,
                 child: Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.only(
+                      bottom: 16.0, top: 16.0, left: 8.0, right: 8.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -138,12 +139,10 @@ class DetailPageMalang extends StatelessWidget {
                       ElevatedButton(
                           onPressed: () {
                             Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                  Reservasi(),
-                            )
-                         );
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Reservasi(),
+                                ));
                           },
                           child: Text("BOOK NOW"))
                     ],
@@ -206,7 +205,6 @@ class DetailPageMalang extends StatelessWidget {
                     fontSize: 14, fontWeight: FontWeight.bold),
               ),
             ),
-
             Comment(),
             Comment(),
             Comment(),

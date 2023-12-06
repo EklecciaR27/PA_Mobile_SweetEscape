@@ -119,7 +119,8 @@ class DetailPageJogja extends StatelessWidget {
               child: Card(
                 color: colorMode.inversePrimary,
                 child: Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.only(
+                      bottom: 16.0, top: 16.0, left: 8.0, right: 8.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -135,15 +136,15 @@ class DetailPageJogja extends StatelessWidget {
                           ),
                         ],
                       ),
-                      ElevatedButton(onPressed: () {
-                         Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                  Reservasi(),
-                            )
-                         );
-                      }, child: Text("BOOK NOW"))
+                      ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Reservasi(),
+                                ));
+                          },
+                          child: Text("BOOK NOW"))
                     ],
                   ),
                 ),
@@ -164,7 +165,8 @@ class DetailPageJogja extends StatelessWidget {
                   SizedBox(
                     height: 10,
                   ),
-                  Text("Candi Borobudur | Candi Prambanan | Taman Sari Water Castle",
+                  Text(
+                      "Candi Borobudur | Candi Prambanan | Taman Sari Water Castle",
                       style: GoogleFonts.montserrat(
                         fontSize: 14,
                       ))
@@ -173,7 +175,7 @@ class DetailPageJogja extends StatelessWidget {
             ),
 
             // deskripsi
-             Padding(
+            Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -187,14 +189,13 @@ class DetailPageJogja extends StatelessWidget {
                     height: 10,
                   ),
                   Text(
-                    "Jogja, kota yang memukau dengan pesona sejarah dan keasrian alamnya. Setiap jengkalnya berbicara tentang kekayaan budaya dan keramahan yang melekat dalam setiap senyuman warganya. Di dalam keberagaman kulturalnya, Jogja menawarkan panggung yang indah untuk setiap momen yang ingin diabadikan dalam sepotong kisah visual. \n Maka, datanglah dan biarkan dirimu terpesona oleh keajaiban Jogja. Sambut hangat matahari terbit atau rasakan kelembutan senja, dan abadikan setiap detik dalam kota yang tak hanya memikat hati, tetapi juga mengundang setiap pengunjung untuk menjadi bagian dari kisah keelokan Jogja. Setiap jalan setapak adalah peluang untuk menangkap keindahan yang autentik dan unik, menjadikan Jogja sebagai surga para wisatawan.",
+                      "Jogja, kota yang memukau dengan pesona sejarah dan keasrian alamnya. Setiap jengkalnya berbicara tentang kekayaan budaya dan keramahan yang melekat dalam setiap senyuman warganya. Di dalam keberagaman kulturalnya, Jogja menawarkan panggung yang indah untuk setiap momen yang ingin diabadikan dalam sepotong kisah visual. \n Maka, datanglah dan biarkan dirimu terpesona oleh keajaiban Jogja. Sambut hangat matahari terbit atau rasakan kelembutan senja, dan abadikan setiap detik dalam kota yang tak hanya memikat hati, tetapi juga mengundang setiap pengunjung untuk menjadi bagian dari kisah keelokan Jogja. Setiap jalan setapak adalah peluang untuk menangkap keindahan yang autentik dan unik, menjadikan Jogja sebagai surga para wisatawan.",
                       style: GoogleFonts.montserrat(
                         fontSize: 14,
                       ))
                 ],
               ),
             ),
-
 
             // ulasan
             Padding(
@@ -262,4 +263,3 @@ class Comment extends StatelessWidget {
     );
   }
 }
-

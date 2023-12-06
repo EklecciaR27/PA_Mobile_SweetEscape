@@ -40,8 +40,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     var tinggi = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
-        title: Text("PROFILE"),
-        backgroundColor: colorMode.primary,
+        backgroundColor: colorMode.secondary,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
@@ -53,12 +52,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
       ),
       body: Container(
           decoration: BoxDecoration(
-            color: Theme.of(context).brightness == Brightness.dark
-                ? const Color.fromARGB(
-                    255, 21, 21, 21) // Warna latar belakang untuk mode gelap
-                : const Color.fromARGB(255, 255, 255, 255),
+            color: colorMode.secondary,
             // Warna latar belakang untuk mode terang
-            borderRadius: BorderRadius.circular(10.0),
+            //borderRadius: BorderRadius.circular(10.0),
           ),
           child: ListView(children: [
             //BAGIAN UNTUK FOTO PROFIL
@@ -71,7 +67,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 decoration: const BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.cover,
-                    image: AssetImage('images/bali.jpg'),
+                    image: NetworkImage(
+                        "https://i0.wp.com/studiolorier.com/wp-content/uploads/2018/10/Profile-Round-Sander-Lorier.jpg"),
                   ),
                 ),
               ),
@@ -82,17 +79,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
             Stack(children: [
               // Container 1 (yang di belakang)
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.only(left: 8.0, right: 8.0),
                 child: Container(
                   margin: EdgeInsets.fromLTRB(0, tinggi * 0.09, 0, 0),
                   padding: EdgeInsets.fromLTRB(40, tinggi * 0.1, 22, 200),
                   decoration: BoxDecoration(
-                    color: colorMode.secondary,
+                    color: colorMode.onPrimary,
                     // Warna latar belakang untuk mode terang
                     borderRadius: BorderRadius.circular(10.0),
 
                     border: Border.all(
-                      color: Colors.black, // Warna border
+                      color: Colors.white, // Warna border
                       width: 2.0, // Lebar border
                     ),
                   ),
@@ -109,11 +106,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   decoration: BoxDecoration(
                     color: colorMode
                         .onSecondary, // Warna latar belakang untuk mode terang
-                    borderRadius: BorderRadius.circular(10.0),
-                    border: Border.all(
-                      color: Colors.black, // Warna border
-                      width: 2.0, // Lebar border
-                    ),
+                    borderRadius: BorderRadius.circular(40.0),
+                    // border: Border.all(
+                    //   color: Colors.white, // Warna border
+                    //   width: 2.0, // Lebar border
+                    // ),
                   ),
                   child: Column(
                     children: [
@@ -121,22 +118,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       Text(
                         "$username",
                         style: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'AutofillHints.creditCardFamilyName',
-                            color: Color.fromRGBO(19, 32, 67, 1),
-                          ),
+                          fontSize: 20,
+                          fontFamily: 'AutofillHints.creditCardFamilyName',
+                          color: Color.fromRGBO(19, 32, 67, 1),
+                        ),
                         textAlign: TextAlign.center,
                       ),
                       const SizedBox(height: 10),
                       Text(
                         "${user?.email}",
                         style: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'AutofillHints.creditCardFamilyName',
-                            color: Color.fromRGBO(19, 32, 67, 1),
-                          ),
+                          fontSize: 20,
+                          fontFamily: 'AutofillHints.creditCardFamilyName',
+                          color: Color.fromRGBO(19, 32, 67, 1),
+                        ),
                         textAlign: TextAlign.center,
                       ),
                       const SizedBox(height: 10),
@@ -147,7 +142,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               const SizedBox(height: 20),
               //informasi dataa pribadi lainnya
               Positioned(
-                top: 150,
+                top: 120,
                 left: 0,
                 right: 0,
                 child: Column(

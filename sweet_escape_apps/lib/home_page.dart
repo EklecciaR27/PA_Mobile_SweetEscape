@@ -105,7 +105,7 @@ class _HomePageState extends State<HomePage> {
                               cursorHeight: 20,
                               autofocus: false,
                               decoration: InputDecoration(
-                                  hintText: "Cari Cafe & Resto Favoritemu !!",
+                                  hintText: "Cari destinasi kota!!",
                                   prefixIcon: const Icon(Icons.search),
                                   border: OutlineInputBorder(
                                       borderSide: const BorderSide(
@@ -118,18 +118,23 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
-              const Padding(
-                padding: EdgeInsets.all(15.0),
-                child: Row(
-                  children: [
-                    Category(
-                        imagePath: "images/photograph.png", title: "Capture"),
-                    Category(imagePath: "images/camera.png", title: "Studio"),
-                    Category(imagePath: "images/location.png", title: "Near U"),
-                    Category(imagePath: "images/booked.png", title: "Booked"),
-                  ],
+              Container(
+                child: const SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  padding: EdgeInsets.all(15.0),
+                  child: Row(
+                    children: [
+                      Category(
+                          imagePath: "images/photograph.png", title: "Capture"),
+                      Category(imagePath: "images/camera.png", title: "Studio"),
+                      Category(
+                          imagePath: "images/location.png", title: "Near U"),
+                      Category(imagePath: "images/booked.png", title: "Booked"),
+                    ],
+                  ),
                 ),
               ),
+
               Text(
                 "Favorite Spot Photos",
                 style: GoogleFonts.montserrat(
@@ -218,7 +223,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         );
                       },
-                      child: Text("Details"),
+                      child: const Text("Details"),
                       style: ElevatedButton.styleFrom(
                         foregroundColor: colorMode.onTertiary,
                         padding: const EdgeInsets.fromLTRB(
@@ -257,7 +262,6 @@ class _HomePageState extends State<HomePage> {
                       ]),
                     ),
                   ),
-                  
                   Positioned(
                     bottom: 0,
                     left: 10,
@@ -442,9 +446,9 @@ class Category extends StatelessWidget {
     return Card(
       color: colorMode.onTertiary,
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(20.0),
         child: Container(
-          width: MediaQuery.of(context).size.width * 0.11,
+          width: MediaQuery.of(context).size.width * 0.12,
           height: 60,
           child: Column(
             children: [

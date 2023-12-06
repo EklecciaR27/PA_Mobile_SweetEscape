@@ -36,11 +36,6 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => const ProfileScreen()));
     }
-    if (index == 3) {
-      // Periksa apakah indeks yang dipilih adalah 1 (output Review)
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => MyReservation()));
-    }
   }
 
 //isi konten bottom navigasi
@@ -73,15 +68,6 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
           // activeIcon: Icon(Icons.favorite,
           // color:Color(0xFF1E0E4F) ,),
           label: "My Profile",
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(
-            Icons.settings,
-            color: Color.fromARGB(255, 102, 162, 173),
-          ),
-          // activeIcon: Icon(Icons.favorite,
-          // color:Color(0xFF1E0E4F) ,),
-          label: ("Setting"),
         ),
       ],
       selectedItemColor:

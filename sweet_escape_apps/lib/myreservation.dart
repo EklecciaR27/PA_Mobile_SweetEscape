@@ -53,131 +53,68 @@ class MyReservation extends StatelessWidget {
                   var reservation = snapshot.data!.docs[index];
                   return Card(
                     elevation: 10,
-                    color: const Color(0xFF8AB7BA),
+                    color: colorMode.secondary,
                     margin: const EdgeInsets.fromLTRB(16.0, 20.0, 16.0, 8.0),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(20.0),
                       child: Padding(
                         padding: const EdgeInsets.all(12.0),
-                        child: Row(
+                        child: Stack(
                           children: [
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Row(
-                                  children: [
-                                    Text(
-                                      '${reservation['selectedDate'] != null ? DateFormat('dd - MMMM - yyyy').format(reservation['selectedDate'].toDate()) : 'Belum dipilih'}',
-                                      style: const TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    Column(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        Container(
-                                          margin:
-                                              EdgeInsets.fromLTRB(50, 0, 0, 0),
-                                          // padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              if (reservation != null) {
-                                                showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (BuildContext context) {
-                                                    return AlertDialog(
-                                                      title: const Text(
-                                                          'Konfirmasi'),
-                                                      content: const Text(
-                                                          'Apakah Anda yakin ingin menghapus data ini?'),
-                                                      actions: <Widget>[
-                                                        TextButton(
-                                                          onPressed: () {
-                                                            Navigator.of(
-                                                                    context)
-                                                                .pop();
-                                                          },
-                                                          child: const Text(
-                                                              'Batal'),
-                                                        ),
-                                                        TextButton(
-                                                          onPressed: () {
-                                                            // Hapus data di Firestore
-                                                            FirebaseFirestore
-                                                                .instance
-                                                                .collection(
-                                                                    'data_reservasi')
-                                                                .doc(reservation
-                                                                    .id)
-                                                                .delete()
-                                                                .then((value) =>
-                                                                    Navigator.of(
-                                                                            context)
-                                                                        .pop())
-                                                                .catchError(
-                                                                    (error) =>
-                                                                        print(
-                                                                            "Gagal menghapus data: $error"));
-                                                          },
-                                                          child: const Text(
-                                                              'Hapus'),
-                                                        ),
-                                                      ],
-                                                    );
-                                                  },
-                                                );
-                                              }
-
-                                              //print("CIAAA DISINI YA TAP NYA");
-                                            },
-                                            child: Icon(
-                                              Icons.delete_forever_outlined,
-                                              color: const Color.fromARGB(
-                                                  255, 241, 213, 189),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
+                                Text(
+                                  '${reservation['selectedDate'] != null ? DateFormat('dd - MMMM - yyyy').format(reservation['selectedDate'].toDate()) : 'Belum dipilih'}',
+                                  style: const TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                                 const SizedBox(height: 10),
-                                Text(
-                                  'Full Name : ${reservation['name']}',
-                                  style: const TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 15,
-                                  ),
-                                ),
-                                Text(
-                                  'Number Phone : ${reservation['numbphone']}',
-                                  style: const TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 15,
-                                  ),
-                                ),
-                                Text(
-                                  'Location : ${reservation['location']}',
-                                  style: const TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 15,
-                                  ),
-                                ),
-                                Text(
-                                  'Concept : ${reservation['radioValue']}',
-                                  style: const TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 15,
-                                  ),
-                                ),
-                                Text(
-                                  'Email : ${reservation['email']}',
-                                  style: const TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 15,
+                                Container(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'Full Name : ${reservation['name']}',
+                                        style: const TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                        textAlign: TextAlign.left,
+                                      ),
+                                      Text(
+                                        'Number Phone : ${reservation['numbphone']}',
+                                        style: const TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      Text(
+                                        'Location : ${reservation['location']}',
+                                        style: const TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      Text(
+                                        'Concept : ${reservation['radioValue']}',
+                                        style: const TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      Text(
+                                        'Email : ${reservation['email']}',
+                                        style: const TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ],
@@ -189,6 +126,59 @@ class MyReservation extends StatelessWidget {
 
                             //   ],
                             // )
+                            Positioned(
+                              top: 0,
+                              left: 230,
+                              child: Container(
+                                margin: EdgeInsets.fromLTRB(50, 0, 0, 0),
+                                // padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    if (reservation != null) {
+                                      showDialog(
+                                        context: context,
+                                        builder: (BuildContext context) {
+                                          return AlertDialog(
+                                            title: const Text('Konfirmasi'),
+                                            content: const Text(
+                                                'Apakah Anda yakin ingin menghapus data ini?'),
+                                            actions: <Widget>[
+                                              TextButton(
+                                                onPressed: () {
+                                                  Navigator.of(context).pop();
+                                                },
+                                                child: const Text('Batal'),
+                                              ),
+                                              TextButton(
+                                                onPressed: () {
+                                                  // Hapus data di Firestore
+                                                  FirebaseFirestore.instance
+                                                      .collection(
+                                                          'data_reservasi')
+                                                      .doc(reservation.id)
+                                                      .delete()
+                                                      .then((value) =>
+                                                          Navigator.of(context)
+                                                              .pop())
+                                                      .catchError((error) => print(
+                                                          "Gagal menghapus data: $error"));
+                                                },
+                                                child: const Text('Hapus'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      );
+                                    }
+                                  },
+                                  child: Icon(
+                                    Icons.delete_forever_outlined,
+                                    color: const Color.fromARGB(
+                                        255, 241, 213, 189),
+                                  ),
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -201,7 +191,7 @@ class MyReservation extends StatelessWidget {
         },
       );
     } else {
-      return const Text('Tidak ada pengguna yang login');
+      return Center(child: const Text('Tidak ada pengguna yang login'));
     }
   }
 }
