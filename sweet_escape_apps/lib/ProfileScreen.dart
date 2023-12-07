@@ -59,20 +59,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           child: ListView(children: [
             //BAGIAN UNTUK FOTO PROFIL
             const SizedBox(height: 40),
-            Center(
-                child: ClipOval(
-              child: Container(
-                width: 200,
-                height: 200,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: NetworkImage(
-                        "https://i0.wp.com/studiolorier.com/wp-content/uploads/2018/10/Profile-Round-Sander-Lorier.jpg"),
-                  ),
-                ),
-              ),
-            )),
+            Center(child: ClipOval(child: Fotoku())),
             const SizedBox(height: 40),
 
             // INFORMASI
@@ -192,6 +179,46 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ])),
       bottomNavigationBar: BottomNavScreen(
         currentIndex: 2,
+      ),
+    );
+  }
+}
+
+class Fotoku extends StatefulWidget {
+  @override
+  _FotokuState createState() => _FotokuState();
+}
+
+class _FotokuState extends State<Fotoku> {
+  double _size = 230;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _size = _size == 230 ? 180 : 230;
+        });
+      },
+      child: TweenAnimationBuilder<double>(
+        tween: Tween<double>(begin: _size == 180 ? 180 : 230, end: _size),
+        duration: const Duration(seconds: 1),
+        curve: Curves.easeInOut,
+        builder: (context, value, child) {
+          return ClipOval(
+            child: Container(
+              width: value,
+              height: value,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: NetworkImage(
+                      "https://i0.wp.com/studiolorier.com/wp-content/uploads/2018/10/Profile-Round-Sander-Lorier.jpg"),
+                ),
+              ),
+            ),
+          );
+        },
       ),
     );
   }
